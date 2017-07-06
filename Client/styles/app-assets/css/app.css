@@ -40,7 +40,6 @@ html body.boxed-layout {
   padding-right : 0;
 }
 html body.bg-full-screen-image {
-  background : url(../../app-assets/images/backgrounds/bg-2.jpg) no-repeat center center fixed;
   -webkit-background-size : cover;
           background-size : cover;
 }
@@ -4355,12 +4354,12 @@ a.dt-button.green {
 }
 
 td.details-control {
-  background : url('../images/datatables/resources/details_open.png') no-repeat center center;
+  /*background : url('~styles/images/datatables/resources/details_open.png') no-repeat center center;*/
   cursor : pointer;
 }
 
 tr.shown td.details-control {
-  background : url('../images/datatables/resources/details_close.png') no-repeat center center;
+    /*background: url('~styles/images/datatables/resources/details_close.png') no-repeat center center;*/
 }
 
 .DTFC_LeftBodyLiner, .DTFC_RightBodyLiner {

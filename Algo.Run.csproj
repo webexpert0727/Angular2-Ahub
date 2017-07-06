@@ -11,6 +11,7 @@
     <RuntimeFrameworkVersion>1.1.1</RuntimeFrameworkVersion>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,7 +28,87 @@
       <Content Include="app.yaml" CopyToOutputDirectory="Always" />
       <ContentWithTargetPath Include="@(DistFiles)" TargetPath="%(Identity)" CopyToPublishDirectory="Always" />
     </ItemGroup>
-  </Target>
+  </Target>  
+
+  <ItemGroup>
+    <Content Include="Client\styles\app-assets\css\app.css" />
+    <Content Include="Client\styles\app-assets\css\bootstrap-extended.css" />
+    <Content Include="Client\styles\app-assets\css\bootstrap.css" />
+    <Content Include="Client\styles\app-assets\css\colors.css" />
+    <Content Include="Client\styles\app-assets\css\core\menu\menu-types\vertical-menu.css" />
+    <Content Include="Client\styles\app-assets\css\core\menu\menu-types\vertical-overlay-menu.css" />
+    <Content Include="Client\styles\app-assets\fonts\feather\fonts\feather.eot" />
+    <Content Include="Client\styles\app-assets\fonts\feather\fonts\feather.svg" />
+    <Content Include="Client\styles\app-assets\fonts\feather\fonts\feather.woff" />
+    <Content Include="Client\styles\app-assets\fonts\feather\fonts\feather.ttf" />
+    <Content Include="Client\styles\app-assets\fonts\feather\style.min.css" />
+    <Content Include="Client\styles\app-assets\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Client\styles\app-assets\images\ico\apple-icon-120.png" />
+    <Content Include="Client\styles\app-assets\images\ico\favicon.ico" />
+    <Content Include="Client\styles\app-assets\images\logo\stack-logo-light.png" />
+    <Content Include="Client\styles\app-assets\images\portrait\small\avatar-s-1.png" />
+    <Content Include="Client\styles\app-assets\js\core\app-menu.js" />
+    <Content Include="Client\styles\app-assets\js\core\app.js" />
+    <Content Include="Client\styles\app-assets\js\core\libraries\bootstrap.min.js" />
+    <Content Include="Client\styles\app-assets\js\core\libraries\jquery.min.js" />
+    <Content Include="Client\styles\app-assets\vendors\js\ui\jquery-sliding-menu.js" />
+    <Content Include="Client\styles\app-assets\vendors\js\ui\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Client\styles\app-assets\vendors\js\ui\tether.min.js" />
+    <Content Include="Client\styles\app-assets\vendors\js\ui\unison.min.js" />
+    <Content Include="Client\styles\app-assets\css\app.css" />
+    <Content Include="Client\styles\app-assets\css\bootstrap-extended.css" />
+    <Content Include="Client\styles\app-assets\css\bootstrap.css" />
+    <Content Include="Client\styles\app-assets\css\colors.css" />
+    <Content Include="Client\styles\app-assets\css\core\menu\menu-types\vertical-menu.css" />
+    <Content Include="Client\styles\app-assets\css\core\menu\menu-types\vertical-overlay-menu.css" />
+    <Content Include="Client\styles\app-assets\fonts\feather\feather.eot" />
+    <Content Include="Client\styles\app-assets\fonts\feather\feather.svg" />
+    <Content Include="Client\styles\app-assets\fonts\feather\feather.woff" />
+    <Content Include="Client\styles\app-assets\fonts\feather\fonts\feather.ttf" />
+    <Content Include="Client\styles\app-assets\fonts\feather\style.min.css" />
+    <Content Include="Client\styles\app-assets\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Client\styles\app-assets\images\ico\apple-icon-120.png" />
+    <Content Include="Client\styles\app-assets\images\ico\favicon.ico" />
+    <Content Include="Client\styles\app-assets\images\logo\stack-logo-light.png" />
+    <Content Include="Client\styles\app-assets\images\portrait\small\avatar-s-1.png" />
+    <Content Include="Client\styles\app-assets\js\core\app-menu.js" />
+    <Content Include="Client\styles\app-assets\js\core\app.js" />
+    <Content Include="Client\styles\app-assets\js\core\libraries\bootstrap.min.js" />
+    <Content Include="Client\styles\app-assets\js\core\libraries\jquery.min.js" />
+    <Content Include="Client\styles\app-assets\vendors\js\ui\jquery-sliding-menu.js" />
+    <Content Include="Client\styles\app-assets\vendors\js\ui\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Client\styles\app-assets\vendors\js\ui\tether.min.js" />
+    <Content Include="Client\styles\app-assets\vendors\js\ui\unison.min.js" />
+    <Content Include="Client\styles\assets\css\style.css" />
+    <Content Include="Client\styles\assets\css\style.css" />
+    <Content Include="wwwroot\app-assets\css\app.css" />
+    <Content Include="wwwroot\app-assets\css\bootstrap-extended.css" />
+    <Content Include="wwwroot\app-assets\css\bootstrap.css" />
+    <Content Include="wwwroot\app-assets\css\colors.css" />
+    <Content Include="wwwroot\app-assets\css\core\menu\menu-types\vertical-menu.css" />
+    <Content Include="wwwroot\app-assets\css\core\menu\menu-types\vertical-overlay-menu.css" />
+    <Content Include="wwwroot\app-assets\fonts\feather\feather.eot" />
+    <Content Include="wwwroot\app-assets\fonts\feather\feather.svg" />
+    <Content Include="wwwroot\app-assets\fonts\feather\feather.woff" />
+    <Content Include="wwwroot\app-assets\fonts\feather\fonts\feather.eot" />
+    <Content Include="wwwroot\app-assets\fonts\feather\fonts\feather.svg" />
+    <Content Include="wwwroot\app-assets\fonts\feather\fonts\feather.ttf" />
+    <Content Include="wwwroot\app-assets\fonts\feather\fonts\feather.woff" />
+    <Content Include="wwwroot\app-assets\fonts\feather\style.min.css" />
+    <Content Include="wwwroot\app-assets\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="wwwroot\app-assets\images\ico\apple-icon-120.png" />
+    <Content Include="wwwroot\app-assets\images\ico\favicon.ico" />
+    <Content Include="wwwroot\app-assets\images\logo\stack-logo-light.png" />
+    <Content Include="wwwroot\app-assets\images\portrait\small\avatar-s-1.png" />
+    <Content Include="wwwroot\app-assets\js\core\app-menu.js" />
+    <Content Include="wwwroot\app-assets\js\core\app.js" />
+    <Content Include="wwwroot\app-assets\js\core\libraries\bootstrap.min.js" />
+    <Content Include="wwwroot\app-assets\js\core\libraries\jquery.min.js" />
+    <Content Include="wwwroot\app-assets\vendors\js\ui\jquery-sliding-menu.js" />
+    <Content Include="wwwroot\app-assets\vendors\js\ui\perfect-scrollbar.jquery.min.js" />
+    <Content Include="wwwroot\app-assets\vendors\js\ui\tether.min.js" />
+    <Content Include="wwwroot\app-assets\vendors\js\ui\unison.min.js" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OAuth.Introspection" Version="1.0.0" />

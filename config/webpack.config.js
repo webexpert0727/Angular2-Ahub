@@ -84,6 +84,7 @@ let commonConfig = {
             disabled: !AOT,
             tsConfig: helpers.root('tsconfig.webpack.json')
         }),
+
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: ['main', 'vendor', 'polyfills']
         // }),
