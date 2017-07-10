@@ -17,6 +17,11 @@ import { FormControlService } from './forms/form-control.service';
 import { HeaderComponent } from './layout/header.component';
 import { FooterComponent } from './layout/footer.component';
 import { MenuComponent } from './layout/menu.component';
+import { MainContentComponent } from './layout/mainContent.component';
+//import { LibraryComponent } from '../Library/library.component';
+//import { DocsComponent } from '../Docs/docs.component';
+//import { ProjectsComponent } from '../Projects/projects.component';
+//import { SettingsComponent } from '../Settings/settings.component';
 
 import { UppercasePipe } from './pipes/uppercase.pipe';
 
@@ -43,6 +48,11 @@ import { ContentService } from './services/content.service';
     FooterComponent,
       HeaderComponent,
       MenuComponent,
+      MainContentComponent,
+      //LibraryComponent,
+      //DocsComponent,
+      //ProjectsComponent,
+      //SettingsComponent,
     PageHeadingComponent,
     UppercasePipe
   ],
@@ -61,8 +71,14 @@ import { ContentService } from './services/content.service';
     ErrorMessageComponent,
     FooterComponent,
     HeaderComponent,
-    MenuComponent,
+      MenuComponent,
+      MainContentComponent,
+      //LibraryComponent,
+      //DocsComponent,
+      //ProjectsComponent,
+      //SettingsComponent,
     PageHeadingComponent,
+
     UppercasePipe
   ]
 

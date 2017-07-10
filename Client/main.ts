@@ -1,10 +1,10 @@
 import './polyfills';
 import './assets/css/vendor.css';
 
-import './assets/js/ui/unison.min.js';
-import './assets/js/ui/perfect-scrollbar.jquery.min.js';
-import './assets/js/ui/jquery-sliding-menu.js';
-import './assets/js/core/app.js';
+//import './app-assets/js/ui/unison.min.js';
+//import './app-assets/js/ui/perfect-scrollbar.jquery.min.js';
+//import './app-assets/js/ui/jquery-sliding-menu.js';
+//import './app-assets/js/core/app.js';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';

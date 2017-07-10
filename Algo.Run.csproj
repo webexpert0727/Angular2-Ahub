@@ -16,7 +16,16 @@
 
   <ItemGroup>
     <Compile Remove="node_modules\**\*;Client\**\*" />
+    <Compile Remove="wwwroot\app-assets\css\**" />
+    <Compile Remove="wwwroot\app-assets\fonts\**" />
+    <Compile Remove="wwwroot\app-assets\images\**" />
     <Content Remove="wwwroot\dist\**\*" />
+    <EmbeddedResource Remove="wwwroot\app-assets\css\**" />
+    <EmbeddedResource Remove="wwwroot\app-assets\fonts\**" />
+    <EmbeddedResource Remove="wwwroot\app-assets\images\**" />
+    <None Remove="wwwroot\app-assets\css\**" />
+    <None Remove="wwwroot\app-assets\fonts\**" />
+    <None Remove="wwwroot\app-assets\images\**" />
   </ItemGroup>  
 
   <Target Name="RunWebpack" BeforeTargets="BeforePublish">
@@ -81,25 +90,6 @@
     <Content Include="Client\styles\app-assets\vendors\js\ui\unison.min.js" />
     <Content Include="Client\styles\assets\css\style.css" />
     <Content Include="Client\styles\assets\css\style.css" />
-    <Content Include="wwwroot\app-assets\css\app.css" />
-    <Content Include="wwwroot\app-assets\css\bootstrap-extended.css" />
-    <Content Include="wwwroot\app-assets\css\bootstrap.css" />
-    <Content Include="wwwroot\app-assets\css\colors.css" />
-    <Content Include="wwwroot\app-assets\css\core\menu\menu-types\vertical-menu.css" />
-    <Content Include="wwwroot\app-assets\css\core\menu\menu-types\vertical-overlay-menu.css" />
-    <Content Include="wwwroot\app-assets\fonts\feather\feather.eot" />
-    <Content Include="wwwroot\app-assets\fonts\feather\feather.svg" />
-    <Content Include="wwwroot\app-assets\fonts\feather\feather.woff" />
-    <Content Include="wwwroot\app-assets\fonts\feather\fonts\feather.eot" />
-    <Content Include="wwwroot\app-assets\fonts\feather\fonts\feather.svg" />
-    <Content Include="wwwroot\app-assets\fonts\feather\fonts\feather.ttf" />
-    <Content Include="wwwroot\app-assets\fonts\feather\fonts\feather.woff" />
-    <Content Include="wwwroot\app-assets\fonts\feather\style.min.css" />
-    <Content Include="wwwroot\app-assets\fonts\font-awesome\css\font-awesome.min.css" />
-    <Content Include="wwwroot\app-assets\images\ico\apple-icon-120.png" />
-    <Content Include="wwwroot\app-assets\images\ico\favicon.ico" />
-    <Content Include="wwwroot\app-assets\images\logo\stack-logo-light.png" />
-    <Content Include="wwwroot\app-assets\images\portrait\small\avatar-s-1.png" />
     <Content Include="wwwroot\app-assets\js\core\app-menu.js" />
     <Content Include="wwwroot\app-assets\js\core\app.js" />
     <Content Include="wwwroot\app-assets\js\core\libraries\bootstrap.min.js" />

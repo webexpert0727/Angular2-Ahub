@@ -8,6 +8,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
+import { Routes, RouterModule } from '@angular/router';
 
 import { ApiTranslationLoader } from './shared/services/api-translation-loader.service';
 
@@ -15,12 +16,24 @@ import { routing } from './app.routes';
 import { AppService } from './app.service';
 import { appReducer } from './app-store';
 import { AppComponent } from './app.component';
+import { DocsComponent } from './Docs/docs.component';
+import { LibraryComponent } from './Library/library.component';
+import { ProjectsComponent } from './Projects/projects.component';
+import { SettingsComponent } from './Settings/settings.component';
+
+const appRoutes: Routes = [
+    { path: 'library', component: LibraryComponent },
+    { path: 'docs', component: DocsComponent },
+    { path: 'projects', component: ProjectsComponent },
+    { path: 'settings', component: SettingsComponent }
+];
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,
+        RouterModule.forRoot(appRoutes),
         routing,
         // FormsModule,
         HttpModule,
