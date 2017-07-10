@@ -1,6 +1,6 @@
 // tslint:disable
 import { Component } from '@angular/core';
-
+import '../../../assets/js/core/app-menu.js';
 
 @Component({
     selector: 'appc-header',

@@ -26,6 +26,8 @@ module.exports = webpackMerge(commonConfig, {
                     }
                 ],
                 vendor: [
+                    'jquery',
+                    'bootstrap',
                     '@angular/animations',
                     '@angular/platform-browser',
                     '@angular/platform-browser-dynamic',
@@ -39,8 +41,7 @@ module.exports = webpackMerge(commonConfig, {
                     '@ngrx/core',
                     '@ngrx/store',
                     '@ngrx/store-devtools',
-                    '@ngx-translate/core',
-                    '@ng-bootstrap/ng-bootstrap'
+                    '@ngx-translate/core'
                 ]
             },
             dllDir: path.join(__dirname, '../wwwroot', '/dist'),

@@ -177,6 +177,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Client\assets\scss\" />
     <Folder Include="Client\styles\bootstrap-custom\" />
   </ItemGroup>
 

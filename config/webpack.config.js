@@ -73,6 +73,12 @@ let commonConfig = {
                 'ENV': JSON.stringify(isDevBuild ? 'Development' : 'Production')
             }
         }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            perfectScrollbar: "perfectScrollbar",
+            "window.Tether": 'tether'
+        }),
         /*
        * Plugin: ForkCheckerPlugin
        * Description: Do type checking in a separate process, so webpack don't need to wait.

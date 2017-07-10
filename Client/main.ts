@@ -1,5 +1,10 @@
 import './polyfills';
-import './styles/vendor.css';
+import './assets/css/vendor.css';
+
+import './assets/js/ui/unison.min.js';
+import './assets/js/ui/perfect-scrollbar.jquery.min.js';
+import './assets/js/ui/jquery-sliding-menu.js';
+import './assets/js/core/app.js';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
@@ -13,7 +18,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/merge';
-
 
 declare const module: any;
 
@@ -31,14 +35,5 @@ if (module['hot']) {
 } else {
     enableProdMode();
 }
-
-//import './styles/app-assets/js/core/libraries/jquery.min.js';
-//import './styles/app-assets/vendors/js/ui/tether.min.js';
-//import './styles/app-assets/js/core/libraries/bootstrap.min.js';
-//import './styles/app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js';
-//import './styles/app-assets/vendors/js/ui/unison.min.js';
-//import './styles/app-assets/vendors/js/ui/jquery-sliding-menu.js';
-//import './styles/app-assets/js/core/app-menu.js';
-//import './styles/app-assets/js/core/app.js';
 
 platformBrowserDynamic().bootstrapModule(AppModule);

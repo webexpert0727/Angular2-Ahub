@@ -1,0 +1,3 @@
+cd Client\assets\scss\theme
+sass bootstrap.scss ..\..\css\bootstrap-custom\bootstrap.css
+sass bootstrap-extended.scss ..\..\css\bootstrap-custom\bootstrap-extended.css
