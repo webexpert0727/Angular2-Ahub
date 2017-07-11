@@ -1,6 +1,7 @@
 export class ProjectModel {
-    constructor(public id: number,
-        public name: string,
-    ) {
+    constructor(public id: number, public name: string, )
+    {
+
     }
 }
+export interface 
