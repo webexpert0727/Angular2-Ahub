@@ -8,18 +8,18 @@
 
         <div class="content-detached content-right" >
 
-            <div class="content-body" *ngFor="let i of data">
+            <div class="content-body" *ngFor="let i of data" [hidden]="temp != '' && i.itemUrl != temp">
                 <section class="row">
                     <div class="col-sm-12">
                         <!-- Kick start -->
                         <div id="kick-start" class="card" >
                             <div class="card-header">
                                 <div class="media">
-                                    <a class="media-left" href="#">
+                                    <a class="media-left">
                                         <img class="media-object" src="../../styles/app-assets/images/portrait/small/avatar-s-1.png" alt="Generic placeholder image" style="width: 64px;height: 64px;" />
                                     </a>
                                     <div class="media-body">
-                                        <h4 class="media-heading">{{i.itemUrl}}</h4> Finance
+                                        <h4 class="media-heading" title={{i.itemUrl}}>{{i.name}}</h4> <i>{{i.itemUrl}}</i>
                                     </div>
                                 </div>
                                 
@@ -30,8 +30,8 @@
                                         <li>Runs <span class="tag tag tag-pill tag-default float-xs-right">{{i.runCount}}</span></li>
                                     </ul>
                                     <ul class="list-inline mb-0">
-                                        <a class="btn btn-outline-primary" style="float:right ;" *ngIf=i.isDownloaded>Download</a>
-                                        <a class="btn btn-outline-primary" style="float:right ;" *ngIf=!i.isDownloaded>New Project</a>
+                                        <a class="btn btn-outline-primary" style="float:right ; border-radius:0;" *ngIf=i.isDownloaded>Download</a>
+                                        <a class="btn btn-outline-primary" style="float:right ; border-radius:0;" *ngIf=!i.isDownloaded>New Project</a>
                                     </ul>
                                 </div>
                             </div>
@@ -43,11 +43,14 @@
                                     <hr>
                                     <div class="media">
                                         <a class="media-left" >
-                                            <img class="media-object" src="../../styles/app-assets/images/portrait/small/avatar-s-1.png" alt="Generic placeholder image" style="width: 32px;height: 32px;" />
+                                            <img class="media-object" src="../../styles/app-assets/images/portrait/small/avatar-s-1.png" title={{i.authorAvatarUrl}} alt="Generic placeholder image" style="width: 32px;height: 32px;" />
                                         </a>
                                         <div class="media-body">
-                                            {{i.authorUsername}}
-                                        </div>
+                                            <ul class="list-inline mb-1">
+                                                <li>{{i.authorUsername}}</li>
+                                                <li style="padding-left:20px;">{{i.version}}</li>
+                                            </ul>
+</div>
                                     </div>
                                 </div>
                             </div>
@@ -62,40 +65,29 @@
                 <div class="sidebar-content card hidden-md-down" style="background-color: #F5F7FA;">
                     <div class="card-block" style="padding-top:0; padding-left: 0;">
                         <div class="category-title pb-1">
-                            <h4>Runner</h4>
+                            <h3 style="padding-bottom: 15px;">Runner</h3>
                             <ul class="list-inline mb-1">
-                                <li class="mb-1" *ngFor="let e of dataRunner" style="padding-right: 15px;" >
-                                    <button type="button" class="btn btn-secondary btn-block" >{{e.name}}</button>
-                                </li>                      
+                                <li class="mb-1" *ngFor="let e of dataRunner" style="padding-right: 10px;">
+                                    <button type="button" class="btn btn-secondary btn-block" style=" border-radius: 0;">{{e.name}}</button>
+                                </li>
                             </ul>
                         </div>
                         <!-- Card sample -->
-                        <h4 class="card-title">Category</h4>
-                        <div id="accordionWrap2" role="tablist" aria-multiselectable="true">
-                            <div class="card collapse-icon accordion-icon-rotate left" style="background-color:#F5F7FA; padding-bottom:0;">
-                                <div *ngFor="let f of dataCategory">
-                                    <div id="heading21" class="card-header" style="background-color:#F5F7FA; <!--padding: 0;-->">
-                                        <a data-toggle="collapse" data-parent="#accordionWrap2" href="#accordion21" aria-expanded="false" aria-controls="accordion21" class="card-title lead collapsed">{{f.name}}</a>
-                                    </div>
-                                    <div id="accordion21" role="tabpanel" aria-labelledby="heading21" class="card-collapse collapse" aria-expanded="false">
-                                        <div class="card-body">
-                                            <div class="card-block" style="background-color:#F5F7FA">
-                                                content1
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                </div>
+                        <h3 style="padding-bottom: 15px;" >Category</h3>                        
+                                    <div id="accordionWrap2" role="tablist" aria-multiselectable="true">
+                        <div class="card collapse-icon accordion-icon-rotate left" style="background-color:#F5F7FA; padding-bottom:0;">
+                            <div *ngFor="let f of dataCategory">                               
+                                    <h5 (click)="changeTemp(f.name);" style="cursor: pointer" ><span class="fa fa-chevron-right"></span> {{f.name}}</h5>
+                                
+                                <hr>
                             </div>
                         </div>
-                        <!-- /Card sample -->
-                        
-                        <!-- Striped Progress sample -->                        
                     </div>
-                </div>
-
-            </div>
+                                    <!-- /Card sample -->
+                                    <!-- Striped Progress sample -->
+                            </div>                          
+                        </div>
+                    </div>
         </div>
     </div>
 </div>

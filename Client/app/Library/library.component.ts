@@ -21,46 +21,42 @@ let projectList: ProjectModel[] =
 let categoryList: CategoryModel[] = [{
 
     id: 1,
-    name: "category 1"
+    name: "Agriculture"
 },
 {
     id: 2,
-    name: "category 2"
-},
-{
-    id: 3,
-    name: "category 3"
+    name: "Finance"
 }];
 
 let runnerList: RunnerModel[] = [{
 
     id: 1,
-    name: "runner 1",
+    name: "Docker",
     thumbnailUrl: "qwerty1"
 },
 {
     id: 2,
-    name: "runner 2",
+    name: "Java",
     thumbnailUrl: "qwerty2"
 },
 {
     id: 3,
-    name: "runner 3",
+    name: "Python",
     thumbnailUrl: "qwerty3"
 }];
 
 let libraryList: LibraryItemModel[] =
     [{
         id: 1,
-        name: "Bob",
-        itemUrl: "itemUrl 1",
+        name: "New Test 1",
+        itemUrl: "Finance",
         thumbnailUrl: "thumbnailUrl 1",
         authorId: 1,
-        authorUsername: "authorUsername 1",
+        authorUsername: "@author1",
         authorAvatarUrl: "authorAvatarUrl l",
         exerpt: "exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 ",
         content: "content1",
-        version: "version1",
+        version: "1.0.1",
         sourceCodeUrl: "sourceCodeUrl 1",
         categories: categoryList,
         runners: runnerList,
@@ -71,15 +67,15 @@ let libraryList: LibraryItemModel[] =
     },
         {
             id: 2,
-            name: "Vallie",
-            itemUrl: "itemUrl 2",
+            name: "New Test 2",
+            itemUrl: "Agriculture",
             thumbnailUrl: "thumbnailUrl 2",
             authorId: 2,
-            authorUsername: "authorUsername 2",
+            authorUsername: "@author2",
             authorAvatarUrl: "authorAvatarUrl 2",
             exerpt: "exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 ",
             content: "content2",
-            version: "version2",
+            version: "1.0.2",
             sourceCodeUrl: "sourceCodeUrl 2",
             categories: categoryList,
             runners: runnerList,
@@ -99,6 +95,7 @@ export class LibraryComponent {
     dataCategory: any;
     dataRunner: any;
     data: any;
+    temp: string;
     getData(): Promise<any> {
         return new Promise((resolve, reject) => {
             resolve(libraryList);
@@ -119,6 +116,7 @@ export class LibraryComponent {
     }
 
     constructor() {
+        this.temp = "";
         this.getData().then((data) => {
             this.data = data;
         });
@@ -128,6 +126,10 @@ export class LibraryComponent {
         this.getCategory().then((dataCategory) => {
             this.dataCategory = dataCategory;
         });
+    }
+
+    changeTemp(t: string) {
+        this.temp = t;
     }
 
 }
