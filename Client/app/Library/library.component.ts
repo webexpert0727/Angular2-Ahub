@@ -4,28 +4,33 @@ import { RunnerModel } from '../models/runner.model';
 import { ProjectModel } from '../models/project.model';
 import { LibraryItemModel } from '../models/library-item.model';
 
-let projectList: ProjectModel[] =
-    [{
-        id: 1,
-        name: "project 1"
-    },
-    {
-        id: 2,
-        name: "project 2"
-    },
-    {
-        id: 3,
-        name: "project 3"
-    }];
-
 let categoryList: CategoryModel[] = [{
-
     id: 1,
     name: "Agriculture"
 },
 {
     id: 2,
     name: "Finance"
+}];
+
+let projectList: ProjectModel[] =
+[{
+    id: 1,
+    name: "project 1",
+    exerpt: "",
+    categories: categoryList
+},
+{
+    id: 2,
+    name: "project 2",
+    exerpt: "",
+    categories: categoryList
+},
+{
+    id: 3,
+    name: "project 3",
+    exerpt: "",
+    categories: categoryList
 }];
 
 let runnerList: RunnerModel[] = [{
@@ -46,7 +51,8 @@ let runnerList: RunnerModel[] = [{
 }];
 
 let libraryList: LibraryItemModel[] =
-    [{
+    [
+        {
         id: 1,
         name: "New Test 1",
         itemUrl: "Finance",
@@ -65,6 +71,7 @@ let libraryList: LibraryItemModel[] =
         projectCount: projectList.length,
         isDownloaded: true
     },
+<<<<<<< HEAD
         {
             id: 2,
             name: "New Test 2",
@@ -85,6 +92,28 @@ let libraryList: LibraryItemModel[] =
             isDownloaded: false
         }
         ]
+=======
+    {
+        id: 2,
+        name: "Vallie",
+        itemUrl: "itemUrl 2",
+        thumbnailUrl: "thumbnailUrl 2",
+        authorId: 2,
+        authorUsername: "authorUsername 2",
+        authorAvatarUrl: "authorAvatarUrl 2",
+        exerpt: "exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 ",
+        content: "content2",
+        version: "version2",
+        sourceCodeUrl: "sourceCodeUrl 2",
+        categories: categoryList,
+        runners: runnerList,
+        projects: projectList,
+        runCount: runnerList.length,
+        projectCount: projectList.length,
+        isDownloaded: false
+    }
+    ]
+>>>>>>> 99778b67fcb390e888187a6f9f6c21c9a99ff63e
 
 @Component({
     selector: 'appc-library',
