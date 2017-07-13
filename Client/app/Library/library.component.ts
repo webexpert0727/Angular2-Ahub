@@ -18,6 +18,7 @@ let projectList: ProjectModel[] =
     id: 1,
     name: "project 1",
     exerpt: "",
+    dateAdded: Date.now,
     categories: categoryList
 },
 {
@@ -71,32 +72,10 @@ let libraryList: LibraryItemModel[] =
         projectCount: projectList.length,
         isDownloaded: true
     },
-<<<<<<< HEAD
-        {
-            id: 2,
-            name: "New Test 2",
-            itemUrl: "Agriculture",
-            thumbnailUrl: "thumbnailUrl 2",
-            authorId: 2,
-            authorUsername: "@author2",
-            authorAvatarUrl: "authorAvatarUrl 2",
-            exerpt: "exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 ",
-            content: "content2",
-            version: "1.0.2",
-            sourceCodeUrl: "sourceCodeUrl 2",
-            categories: categoryList,
-            runners: runnerList,
-            projects: projectList,
-            runCount: runnerList.length,
-            projectCount: projectList.length,
-            isDownloaded: false
-        }
-        ]
-=======
     {
         id: 2,
         name: "Vallie",
-        itemUrl: "itemUrl 2",
+        itemUrl: "Agriculture",
         thumbnailUrl: "thumbnailUrl 2",
         authorId: 2,
         authorUsername: "authorUsername 2",
@@ -113,7 +92,6 @@ let libraryList: LibraryItemModel[] =
         isDownloaded: false
     }
     ]
->>>>>>> 99778b67fcb390e888187a6f9f6c21c9a99ff63e
 
 @Component({
     selector: 'appc-library',

@@ -1,9 +1,74 @@
 ﻿<div class="app-content content container-fluid">
     <div class="content-wrapper">
         <div class="content-header row">
-            <div class="content-header-left col-md-6 col-xs-12 mb-1">
-                <h3 class="content-header-title">Projects</h3>
+            <div class="content-header-left col-md-12 col-xs-12 mb-1">
+                <ul class="list-inline mb-0">
+                    <li><h3 class="content-header-title"><b>Projects</b></h3></li>
+                    <li style="float:right ;"><a class="btn btn-outline-primary" style="border-radius:0;">New Project</a></li> 
+                    </ul>
+            </div>
+        </div>
+
+        <div class="content-detached content-right">
+
+            <div class="content-body" *ngFor="let i of data" [hidden]="temp != '' && i.category != temp">
+                <section class="row">
+                    <div class="col-sm-12">
+                        <!-- Kick start -->
+                        <div id="kick-start" class="card">
+                            <div class="card-header">
+                                <div class="media">                                    
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><b>{{i.name}}</b></h4>
+                                    </div>
+                                </div>
+
+                                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-1">
+                                        <li>Runs <span class="tag tag tag-pill tag-default float-xs-right">{{i.runCount}}</span></li>
+                                        <li>Assets <span class="tag tag tag-pill tag-default float-xs-right">{{i.assetCount}}</span></li>
+                                    </ul>                                    
+                                </div>
+                            </div>
+                            <div class="card-body collapse in">
+                                <div class="card-block" style="padding-top: 0; padding-bottom: 0;">
+                                    <div class="card-text">
+                                        <p>{{i.exerpt}}</p>
+                                        <i style="color: #A3A3A3"> Added: 1 Day Ago</i>
+                                    </div>
+                                    <hr>
+                                    <div class="media">
+                                        <div  class="media-left">
+                                            <ul class="list-inline mb-1">
+                                                <a class="btn btn-outline-primary" style="border-radius:0; padding: 8px; padding-right: 20px; padding-left: 20px;">New Run</a>
+                                                <a class="btn btn-outline-primary" style="border-radius:0; padding: 8px; padding-right: 20px; padding-left: 20px;">Visualizers v</a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Kick start -->
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="sidebar-detached sidebar-left">
+            <div class="sidebar">
+                <div class="sidebar-content card hidden-md-down" style="background-color: #F5F7FA;">
+                    <div class="card-block" style="padding-top:0; padding-left: 0;">
+                        <div class="category-title pb-3">
+                            <input type="text" class="form-control form-control-lg input-sm" id="iconLeft" placeholder="Search...">
+                        </div>
+                        <h3 style="padding-bottom: 15px;">Category</h3>
+                                <div *ngFor="let f of dataCategory">
+                                    <h5 (click)="changeTemp(f.name);" style="cursor: pointer"><span class="fa fa-chevron-right"></span> {{f.name}}</h5>
+                                    <hr>                               
+                                </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    </div>
+</div>

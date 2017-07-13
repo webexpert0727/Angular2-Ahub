@@ -5,6 +5,7 @@ export class ProjectModel {
         public exerpt: string,
         public dateAdded: Date,
         public categories: CategoryModel[],
+        public category: string,
         public runCount: number,
         public assetCount: number
     ) {
