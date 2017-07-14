@@ -1,48 +1,6 @@
-﻿import { Component } from '@angular/core';
-import { CategoryModel } from '../models/category.model';
-//import { RunnerModel } from '../models/runner.model';
-import { ProjectModel } from '../models/project.model';
-
-let categoryList: CategoryModel[] = [{
-    id: 1,
-    name: "Agriculture"
-},
-{
-    id: 2,
-    name: "Finance"
-}];
-
-let projectList: ProjectModel[] =
-    [{
-        id: 1,
-        name: "Project Name 1",
-        exerpt: "exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 exerpt1 ",
-        dateAdded: Date.now,
-        categories: categoryList,
-        category: "Agriculture",
-        runCount: 3,
-        assetCount: 6
-    },
-    {
-        id: 2,
-        name: "Project Name 2",
-        exerpt: "exerpt2 exrpt2 exerpt2 exrpt2 exerpt2 exrpt2 exerpt2 exrpt2 exerpt2 exrpt2 exerpt2 exrpt2 exerpt2 exrpt2 exerpt2 exrpt2 exerpt2 exrpt2 exerpt2 exrpt2 ",
-        categories: categoryList,
-        category: "Finance",
-        dateAdded: Date.now,
-        runCount: 3,
-        assetCount: 6
-    },
-    {
-        id: 3,
-        name: "Project Name 3",
-        exerpt: "exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 exerpt3 ",
-        dateAdded: Date.now,
-        categories: categoryList,
-        category: "Agriculture",
-        runCount: 3,
-        assetCount: 6
-    }];
+﻿import { Router } from '@angular/router';
+import { MockAPi } from './../mock.api';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'appc-projects',
@@ -50,33 +8,42 @@ let projectList: ProjectModel[] =
     templateUrl: './projects.component.html'
 })
 
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
     dataCategory: any;
+    dataRunner: any;
     data: any;
     temp: string;
+    constructor(public api: MockAPi, public router: Router) { }
 
-    getData(): Promise<any> {
-        return new Promise((resolve, reject) => {
-            resolve(projectList);
-        });
-    }
-
-    getCategory(): Promise<any> {
-        return new Promise((resolve, reject) => {
-            resolve(categoryList);
-        });
-    }
-
-    constructor() {
-        this.temp = "";
-        this.getData().then((data) => {
+    getData() {
+        this.api.getData().then((data) => {
             this.data = data;
-        });        
-        this.getCategory().then((dataCategory) => {
+        });
+    }
+    getRunners() {
+        this.api.getRunners().then((dataRunner) => {
+            this.dataRunner = dataRunner;
+        });
+    }
+
+    getCategory() {
+        this.api.getCategory().then((dataCategory) => {
             this.dataCategory = dataCategory;
         });
+
     }
+    ngOnInit() {
+        this.temp = '';
+        this.getData();
+        this.getRunners();
+        this.getCategory();
+
+    }
+
     changeTemp(t: string) {
-        this.temp = t;        
+        this.temp = t;
+    }
+    goToProjectDetails(id: string) {
+        this.router.navigate(['projects', id]);
     }
 }
