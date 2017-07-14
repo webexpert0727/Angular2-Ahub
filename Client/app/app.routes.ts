@@ -1,4 +1,8 @@
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { DocsComponent } from './Docs/docs.component';
+import { LibraryComponent } from './Library/library.component';
+import { ProjectsComponent } from './Projects/projects.component';
+import { SettingsComponent } from './Settings/settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,7 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'examples', loadChildren: './+examples/examples.module#ExamplesModule'
-  }
+  },
+  { path: 'library', component: LibraryComponent },
+  { path: 'docs', component: DocsComponent },
+  { path: 'projects', component: ProjectsComponent },
+  { path: 'settings', component: SettingsComponent }
 ];
 
 export const routing = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules });
