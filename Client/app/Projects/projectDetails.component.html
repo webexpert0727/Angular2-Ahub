@@ -1,28 +1,26 @@
-﻿<div class="app-content content container-fluid">
-    <div class="content-wrapper">
-        <div class="content-header row">
+﻿<div class="app-content content container-fluid" >
+    <div class="content-wrapper" >
+        <div class="content-header row" >
             <div class="content-header-left col-md-12 col-xs-12 mb-0">
                 <ul class="list-inline mb-2">
                     <li>
                         <h3 class="content-header-title"><b>{{data.name}}</b></h3>
                     </li>
                     <li style="float:right ;">
-                        <a class="btn btn-outline-primary" style="border-radius:10px; padding: 8px; padding-right: 20px; padding-left: 20px;">New Run</a>
-                        <a class="btn btn-outline-primary" style="border-radius:10px; padding: 8px; padding-right: 20px; padding-left: 20px;">Edit</a>
-                        <a class="btn btn-outline-red" style="border-radius:10px; padding: 8px; padding-right: 20px; padding-left: 20px;">Delete</a>
+                        <a class="btn btn-outline-primary" style="border-radius: 0; padding: 8px; padding-right: 20px; padding-left: 20px;">New Run</a>
+                        <a class="btn btn-outline-primary" style="border-radius:0px; padding: 8px; padding-right: 20px; padding-left: 20px;">Edit</a>
+                        <a class="btn btn-outline-red" style="border-radius:0px; padding: 8px; padding-right: 20px; padding-left: 20px;">Delete</a>
                     </li>
                 </ul>
                 <div class="content-header-left col-md-9 col-xs-9 mb-0">
-                    <p style="padding-bottom:0;">text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1
-                        text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1
-                        text1 text1 text1 text1 text1 text1 </p>
+                    <p style="padding-bottom:0;">{{data.exerpt}}</p>
                 </div>
             </div>
         </div>
         <hr style="border-top-width: 3px;">
         <div class="content-body">
             <ul class="list-inline mb-1">
-                <li>Assets <span class="tag tag tag-pill tag-default">5</span></li>
+                <li>Assets <span class="tag tag tag-pill tag-default">{{data.assets.length}}</span></li>
             </ul>
             <section class="row">
                 <div class="col-sm-12">
@@ -41,24 +39,15 @@
                                         <th>Run Id</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody *ngFor="let item of data.assets">
                                     <tr>
                                         <td><i class="ft-download"></i></td>
-                                        <td>test.csv</td>
-                                        <td>7/10/17 2:14PM</td>
-                                        <td>Comma Separated Values</td>
-                                        <td>Algo Name</td>
-                                        <td>Output</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="ft-download"></i></td>
-                                        <td>image.jpg</td>
-                                        <td>7/10/17 2:14PM</td>
-                                        <td>Jpeg Image</td>
-                                        <td>Uploaded</td>
-                                        <td>Input</td>
-                                        <td>3</td>
+                                        <td>{{item.filename}}</td>
+                                        <td>{{item.dateCreated}}</td>
+                                        <td>{{item.mediaType}}</td>
+                                        <td>{{item.source}}</td>
+                                        <td>{{item.type}}</td>
+                                        <td>{{item.runId}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -78,8 +67,7 @@
                         <i class="fa fa-sort-amount-desc"></i><label class="mr-sm-2">Sort By:</label>
                         <select class="form-control input-sm" style="min-width: 150px" id="SmallSelect">
                             <option selected value="1">Newest</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="2">Older</option>
                         </select>
                     </form>
                 </div>
@@ -88,18 +76,18 @@
                 <section class="row">
                     <div class="col-sm-12">
                         <!-- Kick start -->
-                        <div id="kick-start" class="card">
+                        <div id="kick-start" class="card" *ngFor="let item of data.runs">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md-4 primaryTitle"><b>Algo Name</b></div>
-                                    <div class="col-md-4 secondTitle"><b>Run Status</b></div>
-                                    <div class="col-md-4"> <a class="btn btn-outline-primary" style="border-radius:10px; padding: 8px; padding-right: 20px; padding-left: 20px;">Run Again</a></div>
+                                    <div class="col-md-4 primaryTitle"><b>{{item.algoName}}</b></div>
+                                    <div class="col-md-4 secondTitle"><b>{{item.status}}</b></div>
+                                    <div class="col-md-4"><a class="btn btn-outline-primary" style="border-radius:0px; padding: 8px; padding-right: 20px; padding-left: 20px;">Run Again</a></div>
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <div class="col-md-4">Started <b>7/10/17 at 2:15 PM</b></div>
-                                    <div class="col-md-4">Completed <b>7/10/17 at 2:17 PM</b></div>
-                                    <div class="col-md-4">Run Time <b>2 minutes</b></div>
+                                    <div class="col-md-4">Started <b>{{item.dateStarted}} at {{item.dateCompleted}}</b></div>
+                                    <div class="col-md-4">Completed <b>{{item.dateAdded}} at {{item.dateCompleted}}</b></div>
+                                    <div class="col-md-4">Run Time <b>{{item.runtimeMs}} minutes</b></div>
                                 </div>
                             </div>
 

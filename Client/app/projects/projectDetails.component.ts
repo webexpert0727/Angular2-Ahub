@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProjectsDetailsComponent implements OnInit {
     id: number;
-    data: any;
+    data: any = [] = [];
 
     constructor(private route: ActivatedRoute, private api: MockAPi) {
         this.route.params.forEach((params: Params) => {
@@ -18,12 +18,13 @@ export class ProjectsDetailsComponent implements OnInit {
         });
     }
     ngOnInit() {
+        debugger;
         this.getData();
 
     }
 
     getData() {
-        this.api.getDataById(+this.id).then((data) => {
+        this.api.getDataProjectById(+this.id).then((data) => {
             this.data = data;
             debugger;
         });

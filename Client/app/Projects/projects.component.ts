@@ -11,12 +11,12 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectsComponent implements OnInit {
     dataCategory: any;
     dataRunner: any;
-    data: any;
+    data: any = [];
     temp: string;
     constructor(public api: MockAPi, public router: Router) { }
 
     getData() {
-        this.api.getData().then((data) => {
+        this.api.getDataProject().then((data) => {
             this.data = data;
         });
     }

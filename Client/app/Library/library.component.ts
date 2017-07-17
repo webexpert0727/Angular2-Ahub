@@ -13,7 +13,7 @@ export class LibraryComponent implements OnInit {
     temp: string;
     constructor(public api: MockAPi) { }
     getData() {
-        this.api.getData().then((data) => {
+        this.api.getDataLibrary().then((data) => {
             this.data = data;
         });
     }
