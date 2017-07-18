@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectsComponent implements OnInit {
     dataCategory: any;
     dataRunner: any;
-    data: any = [];
+    data: any;
     temp: string;
     constructor(public api: MockAPi, public router: Router) { }
 
@@ -37,7 +37,6 @@ export class ProjectsComponent implements OnInit {
         this.getData();
         this.getRunners();
         this.getCategory();
-
     }
 
     changeTemp(t: string) {

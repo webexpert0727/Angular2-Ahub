@@ -73,45 +73,25 @@ const runsList: RunModel[] = [{
     algoName: 'TestAlgo',
     projectId: 1,
     dateAdded: '7/10/17',
-    dateStarted: '2:15 PM',
-    dateCompleted: '2:17 PM',
+    dateStarted: '7/10/17 at 2:15 PM',
+    dateCompleted: '7/10/17 at 2:17 PM',
     assets: assetsList.filter(x => x.runId === 1),
     runtimeMs: 2,
-    status: 'Status1'
+    status: 'Status1',
+    completionPercent: 60
 },
 {
     id: 2,
     algoName: 'TestAlgo1',
     projectId: 1,
     dateAdded: '7/10/15',
-    dateStarted: '2:13 PM',
-    dateCompleted: '2:18 PM',
-    assets: assetsList.filter(x => x.runId === 1),
-    runtimeMs: 5,
-    status: 'Status2'
-},
-{
-    id: 3,
-    algoName: 'TestAlgo2',
-    projectId: 2,
-    dateAdded: '7/12/17',
-    dateStarted: '2:00 PM',
-    dateCompleted: '2:02 PM',
+    dateStarted: '7/10/15 at 2:13 PM',
+    dateCompleted: '7/10/15 at 2:18 PM',
     assets: assetsList.filter(x => x.runId === 2),
-    runtimeMs: 2,
-    status: 'Status3'
-},
-{
-    id: 4,
-    algoName: 'TestAlgo3',
-    projectId: 3,
-    dateAdded: '7/10/14',
-    dateStarted: '2:10 PM',
-    dateCompleted: '2:12 PM',
-    assets: assetsList.filter(x => x.runId === 3),
-    runtimeMs: 2,
-    status: 'Status4'
-},
+    runtimeMs: 5,
+    status: 'Status2',
+    completionPercent: 80
+}
 ];
 const runnerList: RunnerModel[] = [{
 
@@ -133,35 +113,16 @@ const runnerList: RunnerModel[] = [{
 const projectList: ProjectModel[] =
     [{
         id: 1,
-        name: 'project 1',
+        name: 'Rest',
         exerpt: 'test1',
         dateAdded: displayDate,
         categories: categoryList,
         runs: runsList.filter(x => x.projectId === 1),
         assets: assetsList.filter(x => x.runId === 1),
         runCount: runsList.filter(x => x.projectId === 1).length,
-        assetCount:  assetsList.filter(x => x.runId === 1).length
+        assetCount: assetsList.filter(x => x.runId === 1).length
     },
-    {
-        id: 2,
-        name: 'project 2',
-        exerpt: 'test2',
-        categories: categoryList,
-        runs: runsList.filter(x => x.projectId === 2),
-        assets: assetsList.filter(x => x.runId === 2),
-        runCount: runsList.filter(x => x.projectId === 2).length,
-        assetCount: assetsList.filter(x => x.runId === 2).length
-    },
-    {
-        id: 3,
-        name: 'project 3',
-        exerpt: 'test3',
-        categories: categoryList,
-        runs: runsList.filter(x => x.projectId === 3),
-        assets: assetsList.filter(x => x.runId === 3),
-        runCount: runsList.filter(x => x.projectId === 3).length,
-        assetCount:  assetsList.filter(x => x.runId === 3).length
-    }];
+   ];
 
 const libraryList: LibraryItemModel[] =
     [

@@ -1,0 +1,204 @@
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-12 col-xs-12 mb-0" *ngFor="let item of dataRuns">
+                <ul class="list-inline mb-2">
+                    <li>
+                        <h3 class="content-header-title"><b>{{data.name}} - Run {{data.id}}</b></h3>
+                    </li>
+                    <li style="float:right ;">
+                        <a class="btn btn-outline-primary" style="border-radius: 0; padding: 8px; padding-right: 20px; padding-left: 20px;">Run Again</a>
+                    </li>
+                </ul>
+                <div class="row">
+                    <div class="col-md-4 primaryTitle">
+                        <b>{{item.algoName}}</b>
+                    </div>
+
+                    <div class="col-md-4 secondTitle"><b>Run Status</b></div>
+                    <div class="col-md-4"><b>{{item.completionPercent}}% Complete</b></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">Started <b>{{item.dateStarted}}</b></div>
+                    <div class="col-md-4">Completed <b>{{item.dateCompleted}}</b></div>
+                    <div class="col-md-4">Run Time <b>{{item.runtimeMs}} minutes</b></div>
+                </div>
+            </div>
+        </div>
+        <hr style="border-top-width: 3px;">
+        <div class="content-body">
+            <ul class="list-inline mb-1">
+                <li><b>Assets</b> <span class="tag tag tag-pill tag-default">{{data.assets.length}}</span></li>
+            </ul>
+            <section class="row">
+                <div class="col-sm-12">
+                    <!-- Kick start -->
+                    <div id="kick-start" class="card">
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>File Name</th>
+                                        <th>Created</th>
+                                        <th>Media Type</th>
+                                        <th>Source</th>
+                                        <th>Type</th>
+                                        <th>Run Id</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let item of dataAssets;">
+                                    <tr>
+                                        <td><i class="ft-download"></i></td>
+                                        <td>{{item.filename}}</td>
+                                        <td>{{item.dateCreated}}</td>
+                                        <td>{{item.mediaType}}</td>
+                                        <td>{{item.source}}</td>
+                                        <td>{{item.type}}</td>
+                                        <td>{{item.runId}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/ Kick start -->
+                </div>
+            </section>
+            <div class="row">
+                <div class="col-sm-5 col-md-6">
+                    <ul class="list-inline mb-1">
+                        <li><b>Logs</b></li>
+                    </ul>
+                    <ul class="list-inline mb-1">
+                        <li>stdout</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-body">
+                <div class="lower-wheel-speed scroll-example height-300 ps-container ps-theme-default ps-active-y">
+                    <p> Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                        Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                        Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                        Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                        Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                    </p>
+                    <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+                        <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                    </div>
+                    <div class="ps-scrollbar-y-rail" style="top: 0px; height: 296px; right: 3px;">
+                        <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 155px;"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <br>
+                    <div class="col-sm-5 col-md-6">
+                        <ul class="list-inline mb-1">
+                            <li>stderr</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lower-wheel-speed scroll-example height-300 ps-container ps-theme-default ps-active-y">
+                    <p> Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                        Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                        Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                        Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                        Leverage agile frameworks to provide a stack synopsis for high level overviews. Iterative approaches
+                        to corporate strategy foster collaborative thinking to further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring
+                        to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+                        forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+                        cloud solution. User generated content in real-time will have multiple touch points for offshoring.
+                    </p>
+                    <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+                        <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                    </div>
+                    <div class="ps-scrollbar-y-rail" style="top: 0px; height: 296px; right: 3px;">
+                        <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 155px;"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <br>
+                    <div class="col-sm-5 col-md-6">
+                        <ul class="list-inline mb-1">
+                            <li><b>Parameters</b></li>
+                        </ul>
+                    </div>
+                </div>
+                <section class="row">
+                    <div class="col-sm-12">
+                        <!-- Kick start -->
+                        <div id="kick-start" class="card">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Parameter Name</th>
+                                            <th>Value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--/ Kick start -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+import { RunDetailComponent } from './runs/runs.component';
 import { ProjectsDetailsComponent } from './projects/projectDetails.component';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { DocsComponent } from './Docs/docs.component';
@@ -26,7 +27,10 @@ const routes: Routes = [
   { path: 'library', component: LibraryComponent },
   { path: 'docs', component: DocsComponent },
   { path: 'projects', component: ProjectsComponent },
-  { path: 'projects/:id', component: ProjectsDetailsComponent },
+  {
+    path: 'projects/:id', component: ProjectsDetailsComponent
+  },
+  { path: 'projects/:id/runs/:id', component: RunDetailComponent },
   { path: 'settings', component: SettingsComponent }
 ];
 

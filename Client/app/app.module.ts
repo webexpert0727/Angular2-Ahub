@@ -1,3 +1,4 @@
+import { RunDetailComponent } from './runs/runs.component';
 import { MockAPi } from './mock.api';
 import { ProjectsDetailsComponent } from './projects/projectDetails.component';
 import { NgModule } from '@angular/core';
@@ -23,7 +24,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
-    declarations: [AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent, ProjectsDetailsComponent],
+    declarations: [AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent, ProjectsDetailsComponent, RunDetailComponent],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,
