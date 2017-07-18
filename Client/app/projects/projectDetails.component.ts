@@ -18,7 +18,7 @@ export class ProjectsDetailsComponent implements OnInit {
         });
     }
     ngOnInit() {
-        debugger;
+        //debugger;
         this.getData();
 
     }
