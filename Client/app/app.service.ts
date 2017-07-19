@@ -11,4 +11,5 @@ export class AppService {
     //    return this.http.get(`${this.baseUrl}/users`).map((res: Response) => res.json() as UserGetModel[])
     //        .catch((error: any) => Observable.throw(error));
     // }
+    
 }

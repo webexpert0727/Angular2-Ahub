@@ -65,7 +65,7 @@
                 <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                     <form class="form-inline list-inline mb-1" style="float: right;">
                         <i class="fa fa-sort-amount-desc"></i><label class="mr-sm-2">Sort By:</label>
-                        <select class="form-control input-sm" style="min-width: 150px" id="SmallSelect">
+                        <select class="form-control input-sm" style="min-width: 150px" id="SmallSelect" (change)="sortByDueDate($event.target.value)">
                             <option selected value="1">Newest</option>
                             <option value="2">Older</option>
                         </select>
@@ -76,7 +76,7 @@
                 <section class="row">
                     <div class="col-sm-12">
                         <!-- Kick start -->
-                        <div id="kick-start" class="card" *ngFor="let item of data.runs">
+                        <div id="kick-start" class="card" *ngFor="let item of dataRuns">
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-4 primaryTitle" style="cursor: pointer" (click)="goToRunsDetails(item.id, data.id)">

@@ -1,10 +1,12 @@
+import { ParameterModel } from './models/parameter.model';
 import { RunModel } from './models/run.model';
 import { AssetModel } from './models/asset.model';
 import { LibraryItemModel } from './models/library-item.model';
 import { RunnerModel } from './models/runner.model';
 import { ProjectModel } from './models/project.model';
 import { CategoryModel } from './models/category.model';
-
+const style = require('ansi-styles');
+import { Injectable } from '@angular/core';
 const displayDate = new Date().toLocaleDateString();
 
 const categoryList: CategoryModel[] = [{
@@ -15,6 +17,51 @@ const categoryList: CategoryModel[] = [{
     id: 2,
     name: 'Finance'
 }];
+const parameterList: ParameterModel[] = [{
+    id: 1,
+    sortOrder: 1,
+    name: 'Test1',
+    value: '192.168.0.1',
+    description: 'RestTest'
+},
+{
+    id: 2,
+    sortOrder: 2,
+    name: 'Test8',
+    value: '192.012142354354',
+    description: 'Test2435'
+},
+{
+    id: 3,
+    sortOrder: 3,
+    name: 'Test3235',
+    value: '19.34545',
+    description: '56768'
+}
+];
+
+const parameterList1: ParameterModel[] = [{
+    id: 1,
+    sortOrder: 1,
+    name: 'Test1',
+    value: '192.168',
+    description: 'descriptiontest'
+},
+{
+    id: 2,
+    sortOrder: 2,
+    name: 'Test2',
+    value: '192.01',
+    description: 'descriptiontest1'
+},
+{
+    id: 3,
+    sortOrder: 3,
+    name: 'Test3',
+    value: '19.01',
+    description: 'descriptiontest2'
+}
+];
 
 const assetsList: AssetModel[] =
     [{
@@ -59,12 +106,22 @@ const assetsList: AssetModel[] =
     },
     {
         id: 5,
-        filename: 'project 3',
+        filename: 'Test image 4',
         runId: 3,
         downloadUrl: 'test2.com',
-        mediaType: 'Test Media 2',
+        mediaType: 'Test Media 56',
         dateCreated: displayDate,
-        source: 'testSource2',
+        source: '567',
+        type: 'Input',
+    },
+    {
+        id: 5,
+        filename: 'Test image 5',
+        runId: 4,
+        downloadUrl: 'test2.com 4',
+        mediaType: 'Test Media 24',
+        dateCreated: displayDate,
+        source: 'testSource24',
         type: 'Input',
     }];
 
@@ -72,27 +129,220 @@ const runsList: RunModel[] = [{
     id: 1,
     algoName: 'TestAlgo',
     projectId: 1,
-    dateAdded: '7/10/17',
+    dateAdded: new Date('7/10/17'),
     dateStarted: '7/10/17 at 2:15 PM',
     dateCompleted: '7/10/17 at 2:17 PM',
     assets: assetsList.filter(x => x.runId === 1),
     runtimeMs: 2,
     status: 'Status1',
-    completionPercent: 60
+    completionPercent: 60,
+    parameters: parameterList,
+    stdErr: `
+   <div>
+<div>[21:47:36] I/update - selenium standalone: selenium-server-standalone-3.4.0.jar up to date</div>
+<div>[ 21: 47: 38] I/ update - geckodriver: unzipping geckodriver-v0.18.0.zip</div>
+<div>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</div>
+<div>npm WARN not sup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for f sevent s@1.1.2: wanted {"os":"darwin","arch":"any</div>
+<div>"} (current: {"os":"win32","arch":"x64"})</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+</div>`,
+    stdOut: `<div>
+<div>[21:47:36] I/update - selenium standalone: selenium-server-standalone-3.4.0.jar up to date</div>
+<div>[ 21: 47: 38] I/ update - geckodriver: unzipping geckodriver-v0.18.0.zip</div>
+<div>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</div>
+<div>npm WARN not sup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for f sevent s@1.1.2: wanted {"os":"darwin","arch":"any</div>
+<div>"} (current: {"os":"win32","arch":"x64"})</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+</div>
+`,
+    hasErrors: true
 },
 {
     id: 2,
     algoName: 'TestAlgo1',
     projectId: 1,
-    dateAdded: '7/10/15',
+    dateAdded: new Date('7/10/15'),
     dateStarted: '7/10/15 at 2:13 PM',
     dateCompleted: '7/10/15 at 2:18 PM',
     assets: assetsList.filter(x => x.runId === 2),
     runtimeMs: 5,
     status: 'Status2',
-    completionPercent: 80
-}
+    completionPercent: 80,
+    parameters: parameterList1,
+    stdErr: (style.color.ansi16m.hex('#ABCDEF') + `
+   <div>
+<div>[21:47:36] I/update - selenium standalone: selenium-server-standalone-3.4.0.jar up to date</div>
+<div>[ 21: 47: 38] I/ update - geckodriver: unzipping geckodriver-v0.18.0.zip</div>
+<div>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</div>
+<div>npm WARN not sup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for f sevent s@1.1.2: wanted {"os":"darwin","arch":"any</div>
+<div>"} (current: {"os":"win32","arch":"x64"})</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+</div>` + style.color.close),
+    stdOut: `<div>
+<div>[21:47:36] I/update - selenium standalone: selenium-server-standalone-3.4.0.jar up to date</div>
+<div>[ 21: 47: 38] I/ update - geckodriver: unzipping geckodriver-v0.18.0.zip</div>
+<div>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</div>
+<div>npm WARN not sup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for f sevent s@1.1.2: wanted {"os":"darwin","arch":"any</div>
+<div>"} (current: {"os":"win32","arch":"x64"})</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+</div>
+`,
+    hasErrors: true
+},
+{
+    id: 3,
+    algoName: 'TestAlgo2',
+    projectId: 2,
+    dateAdded: new Date('7/10/16'),
+    dateStarted: '7/10/16 at 2:13 PM',
+    dateCompleted: '7/10/16 at 2:18 PM',
+    assets: assetsList.filter(x => x.runId === 3),
+    runtimeMs: 5,
+    status: 'Status2',
+    completionPercent: 55,
+    parameters: parameterList1,
+    stdErr: (style.color.ansi16m.hex('#ABCDEF') + `
+   <div>
+<div>[21:47:36] I/update - selenium standalone: selenium-server-standalone-3.4.0.jar up to date</div>
+<div>[ 21: 47: 38] I/ update - geckodriver: unzipping geckodriver-v0.18.0.zip</div>
+<div>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</div>
+<div>npm WARN not sup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for f sevent s@1.1.2: wanted {"os":"darwin","arch":"any</div>
+<div>"} (current: {"os":"win32","arch":"x64"})</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+</div>` + style.color.close),
+    stdOut: `<div>
+<div>[21:47:36] I/update - selenium standalone: selenium-server-standalone-3.4.0.jar up to date</div>
+<div>[ 21: 47: 38] I/ update - geckodriver: unzipping geckodriver-v0.18.0.zip</div>
+<div>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</div>
+<div>npm WARN not sup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for f sevent s@1.1.2: wanted {"os":"darwin","arch":"any</div>
+<div>"} (current: {"os":"win32","arch":"x64"})</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+</div>
+`,
+    hasErrors: true
+},
+{
+    id: 4,
+    algoName: 'TestAlgo3',
+    projectId: 2,
+    dateAdded: new Date('7/10/12'),
+    dateStarted: '7/10/12 at 1:10 PM',
+    dateCompleted: '7/10/12 at 1:18 PM',
+    assets: assetsList.filter(x => x.runId === 4),
+    runtimeMs: 8,
+    status: 'Status2',
+    completionPercent: 93,
+    parameters: parameterList1,
+    stdErr: (style.color.ansi16m.hex('#ABCDEF') + `
+   <div>
+<div>[21:47:36] I/update - selenium standalone: selenium-server-standalone-3.4.0.jar up to date</div>
+<div>[ 21: 47: 38] I/ update - geckodriver: unzipping geckodriver-v0.18.0.zip</div>
+<div>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</div>
+<div>npm WARN not sup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for f sevent s@1.1.2: wanted {"os":"darwin","arch":"any</div>
+<div>"} (current: {"os":"win32","arch":"x64"})</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+</div>` + style.color.close),
+    stdOut: `<div>
+<div>[21:47:36] I/update - selenium standalone: selenium-server-standalone-3.4.0.jar up to date</div>
+<div>[ 21: 47: 38] I/ update - geckodriver: unzipping geckodriver-v0.18.0.zip</div>
+<div>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</div>
+<div>npm WARN not sup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for f sevent s@1.1.2: wanted {"os":"darwin","arch":"any</div>
+<div>"} (current: {"os":"win32","arch":"x64"})</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @angular/core@^2.0.0-rc.0 but none was installed.</div>
+<div>npm WARN @ngrx/devtools@1.4.0 requires a peer of @ngrx/store@^1.5.0 but none was installed.</div>
+<div>npm WARN @ngtools/webpack@1.5.0-beta.1 requires a peer of webpack@^2.2.0 but none was inst alled.</div>
+<div>npm WARN aspnet-webpack@1.0.29 requires a peer of webpack@^1.13.2 | | ^2.1.0-beta but none was installed.</div>
+</div>
+`,
+    hasErrors: true
+},
 ];
+
 const runnerList: RunnerModel[] = [{
 
     id: 1,
@@ -110,19 +360,32 @@ const runnerList: RunnerModel[] = [{
     thumbnailUrl: 'qwerty3'
 }];
 
+
 const projectList: ProjectModel[] =
     [{
         id: 1,
-        name: 'Rest',
-        exerpt: 'test1',
+        name: 'Rest 1',
+        exerpt: 'test 1',
         dateAdded: displayDate,
         categories: categoryList,
         runs: runsList.filter(x => x.projectId === 1),
         assets: assetsList.filter(x => x.runId === 1),
-        runCount: runsList.filter(x => x.projectId === 1).length,
-        assetCount: assetsList.filter(x => x.runId === 1).length
+        runCount: 2,
+        assetCount: 4
     },
-   ];
+    {
+        id: 2,
+        name: 'Rest 2',
+        exerpt: 'test 2',
+        dateAdded: displayDate,
+        categories: categoryList,
+        runs: runsList.filter(x => x.projectId === 2),
+        assets: assetsList,
+        runCount: 2,
+        assetCount: 2
+    },
+    ];
+
 
 const libraryList: LibraryItemModel[] =
     [
@@ -165,6 +428,7 @@ const libraryList: LibraryItemModel[] =
             isDownloaded: false
         }
     ]
+@Injectable()
 export class MockAPi {
     getDataLibrary(): Promise<any> {
         return new Promise((resolve, reject) => {

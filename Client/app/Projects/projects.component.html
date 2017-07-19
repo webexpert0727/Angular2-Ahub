@@ -3,21 +3,22 @@
         <div class="content-header row">
             <div class="content-header-left col-md-12 col-xs-12 mb-1">
                 <ul class="list-inline mb-0">
-                    <li><h3 class="content-header-title"><b>Projects</b></h3></li>
-                    <li style="float:right ;"><a class="btn btn-outline-primary" style="border-radius:0;">New Project</a></li> 
-                    </ul>
+                    <li>
+                        <h3 class="content-header-title"><b>Projects</b></h3>
+                    </li>
+                    <li style="float:right ;"><a class="btn btn-outline-primary" style="border-radius:0;" data-toggle="modal" data-target="#NewProject">New Project</a></li>
+                </ul>
             </div>
         </div>
 
         <div class="content-detached content-right">
-
             <div class="content-body" *ngFor="let i of data" [hidden]="temp != '' && i.category != temp">
                 <section class="row">
                     <div class="col-sm-12">
                         <!-- Kick start -->
                         <div id="kick-start" class="card">
                             <div class="card-header">
-                                <div class="media">                                    
+                                <div class="media">
                                     <div class="media-body">
                                         <h4 class="media-heading" style="cursor: pointer" (click)="goToProjectDetails(i.id);"><b>{{i.name}}</b></h4>
                                     </div>
@@ -28,7 +29,7 @@
                                     <ul class="list-inline mb-1">
                                         <li>Runs <span class="tag tag tag-pill tag-default float-xs-right">{{i.runCount}}</span></li>
                                         <li>Assets <span class="tag tag tag-pill tag-default float-xs-right">{{i.assetCount}}</span></li>
-                                    </ul>                                    
+                                    </ul>
                                 </div>
                             </div>
                             <div class="card-body collapse in">
@@ -39,7 +40,7 @@
                                     </div>
                                     <hr>
                                     <div class="media">
-                                        <div  class="media-left">
+                                        <div class="media-left">
                                             <ul class="list-inline mb-1">
                                                 <a class="btn btn-outline-primary" style="border-radius:0; padding: 8px; padding-right: 20px; padding-left: 20px;">New Run</a>
                                                 <a class="btn btn-outline-primary" style="border-radius:0; padding: 8px; padding-right: 20px; padding-left: 20px;">Visualizers v</a>
@@ -62,11 +63,47 @@
                             <input type="text" class="form-control form-control-lg input-sm" id="iconLeft" placeholder="Search...">
                         </div>
                         <h3 style="padding-bottom: 15px;">Category</h3>
-                                <div *ngFor="let f of dataCategory">
-                                    <h5 (click)="changeTemp(f.name);" style="cursor: pointer"><span class="fa fa-chevron-right"></span> {{f.name}}</h5>
-                                    <hr>                               
-                                </div>
+                        <div *ngFor="let f of dataCategory">
+                            <h5 (click)="changeTemp(f.name);" style="cursor: pointer"><span class="fa fa-chevron-right"></span> {{f.name}}</h5>
+                            <hr>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="modal fade" id="NewProject" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Project</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="addForm.reset()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form #addForm="ngForm">
+                    <div class="form-group">
+                        <label>Project Name</label>
+                        <input class="form-control" type="text" name="name" [(ngModel)]="newProject.name" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" id="placeTextarea" name="exerpt" placeholder="For every minute spent organizing, an hour is earned.
+- Ben Franklin 
+
+A good project description can help you organize and locate your projects and results with ease." style="margin-top: 0px; margin-bottom: 0px; height: 118px;"
+                            [(ngModel)]="newProject.exerpt"></textarea>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="addForm.reset()">Cancel</button>
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal" (click)="postNewProject(newProject); addForm.reset()">Ok</button>
                 </div>
             </div>
         </div>

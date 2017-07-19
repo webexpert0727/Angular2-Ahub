@@ -402,7 +402,7 @@ footer.footer-dark {
 }
 .main-menu.menu-dark .navigation > li {
   padding : 0;
-  border-left : 4px solid transparent;
+  /*border-left : 4px solid transparent;*/
 }
 .main-menu.menu-dark .navigation > li > a {
   padding : 10px 30px 10px 18px;
@@ -416,6 +416,9 @@ footer.footer-dark {
   top : 3px;
 }
 .main-menu.menu-dark .navigation > li.open {
+  /*border-left : 4px solid #00B5B8;*/
+}
+ul li a.active {
   border-left : 4px solid #00B5B8;
 }
 .main-menu.menu-dark .navigation > li.open > a {

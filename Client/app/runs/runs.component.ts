@@ -1,6 +1,8 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { MockAPi } from './../mock.api';
 import { Component, OnInit } from '@angular/core';
+
+
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'app-runs',
@@ -8,14 +10,16 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './runs.component.html'
 })
 
+
 export class RunDetailComponent implements OnInit {
     id: any;
     idChild: any;
     data: any[];
-    dataRuns: any[] = [];
+    dataRuns: any;
     dataAssets: any[] = [];
     constructor(private route: ActivatedRoute, private api: MockAPi, public router: Router) {
     }
+
     ngOnInit() {
         this.route.params.forEach((params: Params) => {
             this.id = this.route.snapshot.url[1].path;
@@ -27,9 +31,10 @@ export class RunDetailComponent implements OnInit {
     getData() {
         this.api.getDataProjectById(+this.id).then((data) => {
             this.data = data;
+            debugger;
             data.runs.forEach(element => {
                 if (+this.idChild === element.id) {
-                    this.dataRuns.push(element);
+                    this.dataRuns = element;
                 }
                 element.assets.forEach(element => {
                     if (+this.idChild === element.runId) {
@@ -38,6 +43,5 @@ export class RunDetailComponent implements OnInit {
                 });
             });
         });
-
     }
 }

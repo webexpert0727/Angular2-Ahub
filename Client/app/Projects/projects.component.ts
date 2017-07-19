@@ -1,4 +1,5 @@
-﻿import { Router } from '@angular/router';
+﻿import { ProjectModel } from './../models/project.model';
+import { Router } from '@angular/router';
 import { MockAPi } from './../mock.api';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,14 +12,23 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectsComponent implements OnInit {
     dataCategory: any;
     dataRunner: any;
-    data: any;
+    data: any[];
     temp: string;
-    constructor(public api: MockAPi, public router: Router) { }
+    newProject: ProjectModel = new ProjectModel();
+    storage: any[] = [];
 
+    stored: any;
+    constructor(public api: MockAPi, public router: Router) {
+        this.stored = JSON.parse(localStorage.getItem('localStorage'); 
+    }
     getData() {
-        this.api.getDataProject().then((data) => {
-            this.data = data;
-        });
+        if (this.stored !== null) {
+           this.data = this.stored;
+        } else {
+            this.api.getDataProject().then((data) => {
+                this.data = data;
+            });
+        }
     }
     getRunners() {
         this.api.getRunners().then((dataRunner) => {
@@ -44,5 +54,18 @@ export class ProjectsComponent implements OnInit {
     }
     goToProjectDetails(id: string) {
         this.router.navigate(['projects', id]);
+    }
+
+    postNewProject(newProject: any) {
+        const item = {
+            id: this.data.length + 1,
+            name: newProject.name,
+            exerpt: newProject.exerpt,
+            runCount: 0,
+            assetCount: 0
+        }
+        this.data.push(item);
+        localStorage.setItem('localStorage', JSON.stringify(this.data));
+        /*localStorage[''] = this.data;*/
     }
 }
