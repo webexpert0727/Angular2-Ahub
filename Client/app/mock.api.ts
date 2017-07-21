@@ -1,3 +1,5 @@
+import { MediaTypeModel } from './models/media-type.model';
+import { InputModel } from './models/input.model';
 import { ParameterModel } from './models/parameter.model';
 import { RunModel } from './models/run.model';
 import { AssetModel } from './models/asset.model';
@@ -347,17 +349,20 @@ const runnerList: RunnerModel[] = [{
 
     id: 1,
     name: 'Docker',
-    thumbnailUrl: 'qwerty1'
+    thumbnailUrl: 'qwerty1',
+    parameters: parameterList,
 },
 {
     id: 2,
     name: 'Java',
-    thumbnailUrl: 'qwerty2'
+    thumbnailUrl: 'qwerty2',
+    parameters: parameterList,
 },
 {
     id: 3,
     name: 'Python',
-    thumbnailUrl: 'qwerty3'
+    thumbnailUrl: 'qwerty3',
+    parameters: parameterList,
 }];
 
 
@@ -368,7 +373,7 @@ const projectList: ProjectModel[] =
         exerpt: 'test 1',
         dateAdded: displayDate,
         categories: categoryList,
-        runs: runsList.filter(x => x.projectId === 1),
+        runs: runsList,
         assets: assetsList.filter(x => x.runId === 1),
         runCount: 2,
         assetCount: 4
@@ -379,14 +384,43 @@ const projectList: ProjectModel[] =
         exerpt: 'test 2',
         dateAdded: displayDate,
         categories: categoryList,
-        runs: runsList.filter(x => x.projectId === 2),
+        runs: runsList,
         assets: assetsList,
         runCount: 2,
         assetCount: 2
     },
     ];
 
+const mediaTypelist: MediaTypeModel[] = [{
 
+}]
+
+const inputList: InputModel[] = [{
+    id: 1,
+    name: 'Test',
+    description: 'stringDescription',
+    isRequired: false,
+    acceptMultiAsset: false,
+    mediaTypes: mediaTypelist
+},
+{
+    id: 2,
+    name: 'Test2',
+    description: 'stringDescription2',
+    isRequired: false,
+    acceptMultiAsset: false,
+    mediaTypes: mediaTypelist
+},
+{
+    id: 3,
+    name: 'Test3',
+    description: 'stringDescription3',
+    isRequired: true,
+    acceptMultiAsset: true,
+    mediaTypes: mediaTypelist
+}
+
+]
 const libraryList: LibraryItemModel[] =
     [
         {
@@ -406,7 +440,8 @@ const libraryList: LibraryItemModel[] =
             projects: projectList,
             runCount: runnerList.length,
             projectCount: projectList.length,
-            isDownloaded: true
+            isDownloaded: true,
+            inputs: inputList,
         },
         {
             id: 2,
@@ -418,14 +453,15 @@ const libraryList: LibraryItemModel[] =
             authorAvatarUrl: 'authorAvatarUrl 2',
             exerpt: 'exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 exerpt2 ',
             content: 'content2',
-            version: 'version2',
+            version: '1.0.2.',
             sourceCodeUrl: 'sourceCodeUrl 2',
             categories: categoryList,
             runners: runnerList,
             projects: projectList,
             runCount: runnerList.length,
             projectCount: projectList.length,
-            isDownloaded: false
+            isDownloaded: false,
+            inputs: inputList,
         }
     ]
 @Injectable()

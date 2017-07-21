@@ -1,0 +1,139 @@
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-12 col-xs-12 mb-0">
+                <ul class="list-inline mb-2">
+                    <li>
+                        <h3 class="content-header-title"><b>{{data.name}} - Run {{dataRunsId}}</b></h3>
+                    </li>
+                    <li style="float:right ;">
+                        <a class="btn btn-outline-primary" style="border-radius: 0; padding: 8px; padding-right: 20px; padding-left: 20px;">Run</a>
+                    </li>
+                </ul>
+                <div class="content-header-left col-md-9 col-xs-9 mb-0">
+
+                    <section class="row">
+                        <form class="form-inline list-inline mb-1">
+                            <select class="form-control input" style="min-width: 400px">
+                            <option selected value="1">Newest</option>
+                            <option value="2">Older</option>
+                        </select>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <hr style="border-top-width: 3px;">
+        <ul class="list-inline mb-2">
+            <h3 class="content-header-title"><b>Runner</b></h3>
+        </ul>
+        <div class="col-md-9 col-xs-9 mb-0">
+            <section class="row">
+                <form class="form-inline list-inline mb-1">
+                    <select class="form-control input" style="min-width: 400px">
+                            <option > Python
+                            </option>
+                              <option > Java
+                            </option>
+                                <option > Docker
+                            </option>
+                        </select>
+                </form>
+            </section>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-md-6">
+                <ul class="list-inline mb-1">
+                    <li>Runner Parameters</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="row">
+            <div class="col-sm-12">
+                <!-- Kick start -->
+                <div id="kick-start" class="card">
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Parameter Name</th>
+                                    <th>Value </th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let item of dataRunners.parameters">
+                                <tr>
+                                    <td>{{item.sortOrder}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td><select class="form-control">
+                                      <option>Select Option</option>
+                                      <option>Option 1</option>
+                                      <option>Option 2</option>
+                                      <option>Option 3</option>
+                                      <option>Option 4</option>
+                                      <option>Option 5</option>
+                                    </select></td>
+                                    <td>{{item.description}}n</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--/ Kick start -->
+            </div>
+        </section>
+        <ul class="list-inline mb-2">
+            <h3 class="content-header-title"><b>Input Map</b></h3>
+        </ul>
+        <section class="row">
+            <div class="col-sm-12">
+                <!-- Kick start -->
+                <div id="kick-start" class="card">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Input</th>
+                                    <th>Assets</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let item of dataLibrary.inputs">
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-md-8">{{item.name}}</div>
+                                            <div class="col-md-4">
+                                                <label class="custom-control custom-checkbox">
+                                                    <input type="checkbox" [(ngModel)]="item.isRequired" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">Required</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">{{item.description}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"> Accepted Media Types: <b>avi, mpeg</b></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <fieldset class="form-group">
+                                            <label class="custom-file center-block block">
+                                      <input type="file" id="file" class="custom-file-input" [multiple]="item.acceptMultiAsset">
+                                      <span class="custom-file-control"></span>
+                                    </label>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--/ Kick start -->
+            </div>
+        </section>
+    </div>
+</div>

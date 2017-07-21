@@ -1,3 +1,5 @@
+import { NewRunsComponent } from './runs/newRuns.component';
+
 import { RunDetailComponent } from './runs/runs.component';
 import { ProjectsDetailsComponent } from './projects/projectDetails.component';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
@@ -30,8 +32,10 @@ const routes: Routes = [
   {
     path: 'projects/:id', component: ProjectsDetailsComponent
   },
+  { path: 'projects/:id/runs/new', component: NewRunsComponent },
   { path: 'projects/:id/runs/:id', component: RunDetailComponent },
-  { path: 'settings', component: SettingsComponent }
+  { path: 'settings', component: SettingsComponent },
+
 ];
 
 export const routing = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules });

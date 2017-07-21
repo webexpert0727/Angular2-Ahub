@@ -1,3 +1,4 @@
+import { NewRunsComponent } from './runs/newRuns.component';
 import { RunDetailComponent } from './runs/runs.component';
 import { MockAPi } from './mock.api';
 import { ProjectsDetailsComponent } from './projects/projectDetails.component';
@@ -11,9 +12,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
-
 import { ApiTranslationLoader } from './shared/services/api-translation-loader.service';
-
 import { routing } from './app.routes';
 import { AppService } from './app.service';
 import { appReducer } from './app-store';
@@ -24,7 +23,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
-    declarations: [AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent, ProjectsDetailsComponent, RunDetailComponent],
+    declarations: [AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent, ProjectsDetailsComponent, RunDetailComponent,
+    NewRunsComponent],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,

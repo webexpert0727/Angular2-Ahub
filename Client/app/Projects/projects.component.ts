@@ -1,5 +1,5 @@
 ﻿import { ProjectModel } from './../models/project.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MockAPi } from './../mock.api';
 import { Component, OnInit } from '@angular/core';
 
@@ -18,12 +18,12 @@ export class ProjectsComponent implements OnInit {
     storage: any[] = [];
 
     stored: any;
-    constructor(public api: MockAPi, public router: Router) {
+    constructor(public api: MockAPi, public router: Router, public route: ActivatedRoute) {
         this.stored = JSON.parse(localStorage.getItem('localStorage'); 
     }
     getData() {
         if (this.stored !== null) {
-           this.data = this.stored;
+            this.data = this.stored;
         } else {
             this.api.getDataProject().then((data) => {
                 this.data = data;
@@ -34,6 +34,9 @@ export class ProjectsComponent implements OnInit {
         this.api.getRunners().then((dataRunner) => {
             this.dataRunner = dataRunner;
         });
+    }
+    goToNewRun(id: string) {
+        this.router.navigate([`projects/${id}/runs/new`]);
     }
 
     getCategory() {

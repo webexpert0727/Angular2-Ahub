@@ -7,7 +7,7 @@
                         <h3 class="content-header-title"><b>{{data.name}}</b></h3>
                     </li>
                     <li style="float:right ;">
-                        <a class="btn btn-outline-primary" style="border-radius: 0; padding: 8px; padding-right: 20px; padding-left: 20px;">New Run</a>
+                        <a class="btn btn-outline-primary" (click)="goToNewRun(data.id);" style="border-radius: 0; padding: 8px; padding-right: 20px; padding-left: 20px;">New Run</a>
                         <a class="btn btn-outline-primary" style="border-radius:0px; padding: 8px; padding-right: 20px; padding-left: 20px;">Edit</a>
                         <a class="btn btn-outline-red" style="border-radius:0px; padding: 8px; padding-right: 20px; padding-left: 20px;">Delete</a>
                     </li>
@@ -102,3 +102,4 @@
         </div>
     </div>
 </div>
+<router-outlet ></router-outlet>
