@@ -1,6 +1,7 @@
 import { CategoryModel } from './category.model';
 import { RunnerModel } from './runner.model';
 import { ProjectModel } from './project.model';
+import { InputModel } from './input.model';
 
 export class LibraryItemModel {
     constructor(public id: number,
@@ -17,6 +18,7 @@ export class LibraryItemModel {
         public categories: CategoryModel[],
         public runners: RunnerModel[],
         public projects: ProjectModel[],
+        public inputs: InputModel[],
         public runCount: number,
         public projectCount: number,
         public isDownloaded: boolean

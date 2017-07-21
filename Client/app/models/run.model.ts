@@ -1,5 +1,6 @@
 import { AssetModel } from './asset.model';
 import { AssetRouteModel } from './asset-route.model';
+import { RunnerModel } from './runner.model';
 import { ParameterModel } from './parameter.model';
 
 export class RunModel {
@@ -13,6 +14,7 @@ export class RunModel {
         public assets: AssetModel[],
         public assetRoutes: AssetRouteModel[],
         public parameters: ParameterModel[],
+        public runner: RunnerModel,
         public runtimeMs: number,
         public status: string,
         public completionPercent: number,
