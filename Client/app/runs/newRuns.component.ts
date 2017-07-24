@@ -17,6 +17,8 @@ export class NewRunsComponent implements OnInit {
     dataRunsId: any;
     dataLibrary: any[];
     dataRunners: any[];
+    dataValue: any[];
+    selectedValue: any;
     constructor(private route: ActivatedRoute, private api: MockAPi, public router: Router, location: PlatformLocation) {
         this.route.params.forEach((params: Params) => {
             this.id = this.route.snapshot.params['id'];
@@ -36,6 +38,7 @@ export class NewRunsComponent implements OnInit {
             this.dataLibrary.runners.forEach(element => {
                 this.dataRunners = element;
             });
+
         });
     }
 }

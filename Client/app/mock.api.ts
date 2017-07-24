@@ -1,3 +1,5 @@
+import { DataTypeModel } from './models/data-type.model';
+import { ParameterOptionModel } from './models/parameter-option.model';
 import { MediaTypeModel } from './models/media-type.model';
 import { InputModel } from './models/input.model';
 import { ParameterModel } from './models/parameter.model';
@@ -19,26 +21,84 @@ const categoryList: CategoryModel[] = [{
     id: 2,
     name: 'Finance'
 }];
+
+const parameteOptionsList: ParameterOptionModel[] = [{
+    id: 1,
+    name: 'string'
+},
+{
+    id: 2,
+    name: 'decimal'
+},
+{
+    id: 3,
+    name: 'integer'
+}
+]
+const dataTypeList: DataTypeModel[] = [{
+    id: 1,
+    name: '',
+    shortName: 'string',
+    precision: 0,
+    scale: 0,
+    options: parameteOptionsList,
+},
+{
+    id: 2,
+    name: '',
+    shortName: 'number',
+    precision: 0,
+    scale: 0,
+    options: parameteOptionsList
+},
+{
+    id: 3,
+    name: '',
+    shortName: 'decimal',
+    precision: 0,
+    scale: 0,
+    options: parameteOptionsList
+},
+{
+    id: 4,
+    name: '',
+    shortName: 'select',
+    precision: 0,
+    scale: 0,
+    options: parameteOptionsList
+}
+]
 const parameterList: ParameterModel[] = [{
     id: 1,
     sortOrder: 1,
     name: 'Test1',
-    value: '192.168.0.1',
-    description: 'RestTest'
+    value: 'sdfxdgdg',
+    description: 'RestTest',
+    dataType: dataTypeList.filter(x => x.id === 1)
 },
 {
     id: 2,
     sortOrder: 2,
     name: 'Test8',
     value: '192.012142354354',
-    description: 'Test2435'
+    description: 'Test2435',
+    dataType: dataTypeList.filter(x => x.id === 2)
 },
 {
     id: 3,
     sortOrder: 3,
     name: 'Test3235',
     value: '19.34545',
-    description: '56768'
+    description: '56768',
+    dataType: dataTypeList.filter(x => x.id === 3)
+},
+{
+    id: 4,
+    sortOrder: 4,
+    name: 'Test323523435345',
+    value: '19.45345345646',
+    description: '456546',
+    dataType: dataTypeList.filter(x => x.id === 4)
 }
 ];
 
@@ -399,7 +459,7 @@ const inputList: InputModel[] = [{
     id: 1,
     name: 'Test',
     description: 'stringDescription',
-    isRequired: false,
+    isRequired: true,
     acceptMultiAsset: false,
     mediaTypes: mediaTypelist
 },
