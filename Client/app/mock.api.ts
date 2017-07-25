@@ -1,3 +1,4 @@
+import { Select2OptionData } from 'ng2-select2';
 import { DataTypeModel } from './models/data-type.model';
 import { ParameterOptionModel } from './models/parameter-option.model';
 import { MediaTypeModel } from './models/media-type.model';
@@ -554,4 +555,5 @@ export class MockAPi {
             resolve(categoryList);
         });
     }
+     
 }

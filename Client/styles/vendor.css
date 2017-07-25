@@ -5,6 +5,10 @@
 @import '~font-awesome/css/font-awesome.css';
 @import '~styles/app-assets/css/bootstrap-extended.css';
 @import '~styles/app-assets/css/app.css';
+/*@import '~styles/app-assets/css/kendo.common.min.css';
+@import '~styles/app-assets/css/kendo.default.min.css';
+@import '~styles/app-assets/css/kendo.default.mobile.min.css';
+@import '~styles/app-assets/css/kendo.rtl.min.css';*/
 @import '~styles/app-assets/css/colors.css';
 @import '~styles/assets/css/style.css';
 /*@import '~styles/assets/css/form-validation.css';
