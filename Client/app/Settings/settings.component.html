@@ -1,9 +1,129 @@
 ﻿<div class="app-content content container-fluid">
     <div class="content-wrapper">
         <div class="content-header row">
-            <div class="content-header-left col-md-6 col-xs-12 mb-1">
-                <h3 class="content-header-title">Settings</h3>
+            <div class="content-header-left col-md-12 col-xs-12 mb-0">
+                <ul class="list-inline mb-2">
+                    <li>
+                        <h3 class="content-header-title"><b>Account</b></h3>
+                    </li>
+                    <li style="float:right ;">
+                        <a class="btn btn-outline-primary" style="border-radius: 0; padding: 8px; padding-right: 20px; padding-left: 20px;">Save Setting</a>
+                    </li>
+                </ul>
+                <div class="media">
+                    <a class="media-left">
+                        <img class="media-object" src="../../styles/app-assets/images/portrait/small/avatar-s-1.png" alt="Generic placeholder image" style="width: 128px;height: 128px;" />
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">Full Name</h4> <div>@username</div><div>Account Settings</div>
+                    </div>
+                </div>
             </div>
         </div>
+        <div style="border: 1px solid #cccccc; background-color: white; border-radius: 5px; ">
+            <h3 class="content-header-title"><b>Database</b></h3>
+            <h5>Redis Connection String</h5>
+            <fieldset class="form-group">
+                <label class="custom-file center-block block">
+                    <input type="file" id="file" class="custom-file-input">
+                    <span class="custom-file-control"></span>
+                </label>
+            </fieldset>
+            <a class="btn btn-outline-primary" style="border-radius: 0; padding: 8px; padding-right: 20px; padding-left: 20px;">Test Connection</a>
+        </div>
+       
+        <ul class="list-inline mb-2">
+            <h3 class="content-header-title"><b>Input Map</b></h3>
+        </ul>
+        <section class="row">
+            <div class="col-sm-12">
+                <div id="kick-start" class="card">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Input</th>
+                                    <th>Assets</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-md-8">ааа</div>
+                                            <div class="col-md-4">
+                                                <label class="custom-control custom-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">Required</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">ааа</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"> Accepted Media Types: <b>avi, mpeg</b></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <fieldset class="form-group">
+                                            <label class="custom-file center-block block">
+                                                <input type="file" id="file" class="custom-file-input">
+                                                <span class="custom-file-control"></span>
+                                            </label>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
+            <div class="col-sm-5 col-md-6">
+                <ul class="list-inline mb-1">
+                    <li>
+                        <h3><b>Algo Parameters</b></h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="row">
+            <div class="col-sm-12">
+                <div id="kick-start" class="card">
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Parameter Name</th>
+                                    <th>Value </th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <tr>
+                                    <td>ааа</td>
+                                    <td>ааа</td>
+                                    <td>
+                                        <input type="text" *ngIf="item.dataType[0].shortName === 'string'">
+                                        <input type="number" *ngIf="item.dataType[0].shortName === 'decimal'">
+                                        <input type="number" *ngIf="item.dataType[0].shortName === 'number'">
+                                        <select style="height: 30px; width: 185px;" >
+                                            <option >ааа</option>
+                                        </select>
+                                    </td>
+                                    <td>ааа</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    </div>
+</div>
