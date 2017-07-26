@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { IMultiSelectOption, IMultiSelectTexts } from 'angular-2-dropdown-multiselect';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'app-new-runs',
@@ -49,7 +50,8 @@ export class NewRunsComponent implements OnInit {
 @Component({
     selector: 'my-dropdown',
     styles: ['./newRuns.component.scss'],
-    template: '<ss-multiselect-dropdown [options]="myOptions" [texts]="myTexts" [settings]="mySettings" [(ngModel)]="optionsModel"></ss-multiselect-dropdown>'})
+    template: '<ss-multiselect-dropdown [options]="myOptions" [texts]="myTexts" [settings]="mySettings" [(ngModel)]="optionsModel"></ss-multiselect-dropdown>'
+})
 
 export class DropDownComponent implements OnInit {
     optionsModel: number[];
@@ -74,10 +76,55 @@ export class DropDownComponent implements OnInit {
     // Labels / Parents 
     myOptions: IMultiSelectOption[] = [];
 
+    constructor(private _sanitizer: DomSanitizer) { }
+
     ngOnInit() {
         this.myOptions = [
-            { id: 1, name: 'Algo name', html: '<div><span class="pull-left"><h3>Algo name</h3></span><span class="pull-right"><h3> v 1.0.1</h3></span></div><div class="pull-left">Algo exerpt - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</div>' },
-            { id: 2, name: 'Algo name 2', html: '<div><span class="pull-left"><h3>Algo name 2</h3></span><span class="pull-right"><h3> v 1.0.2</h3></span></div><div class="pull-left">Algo exerpt - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</div>'}
+            { id: 1, name: 'Algo name', html: this._sanitizer.bypassSecurityTrustHtml('<div  style="color: black"><span style="display:inline-block;"><h5>Algo name</h5></span><span style="display:inline-block; float:right;">v 1.0.1</span></div><div style="color: black">Algo exerpt - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</div>') },
+            { id: 2, name: 'Algo name 2', html: this._sanitizer.bypassSecurityTrustHtml('<div style="color: black"><span style="display:inline-block;"><h5>Algo name 2</h5></span><span style="display:inline-block; float:right;"> v 1.0.1</span></div><div style="color: black">Algo exerpt - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</div>') },
+        ];
+    }
+    onChange() {
+        console.log(this.optionsModel);
+    }
+}
+
+@Component({
+    selector: 'run-dropdown',
+    styles: ['./newRuns.component.scss'],
+    template: '<ss-multiselect-dropdown [options]="myOptions" [texts]="myTexts" [settings]="mySettings" [(ngModel)]="optionsModel"></ss-multiselect-dropdown>'
+})
+
+export class RunDownComponent implements OnInit {
+    optionsModel: number[];
+    mySettings: IMultiSelectSettings = {
+        enableSearch: true,
+        checkedStyle: 'fontawesome',
+        dynamicTitleMaxItems: 1,
+        displayAllSelectedText: true
+    };
+
+    // Text configuration 
+    myTexts: IMultiSelectTexts = {
+        checkAll: 'Select all',
+        uncheckAll: 'Unselect all',
+        checked: 'item selected',
+        checkedPlural: 'items selected',
+        searchPlaceholder: 'Search...',
+        defaultTitle: 'Choose Runner...',
+        allSelected: 'All selected',
+    };
+
+    // Labels / Parents 
+    myOptions: IMultiSelectOption[] = [];
+
+    constructor(private _sanitizer: DomSanitizer) { }
+
+    ngOnInit() {
+        this.myOptions = [
+            { id: 1, name: 'Runner Name', html: this._sanitizer.bypassSecurityTrustHtml('<div style="color: black"><div style="display: inline-block; margin-right: 15px;"">img</div><div style="display: inline-block; width: 250px;"><div>Runner Name</div><div>Runner discription</div> </div></div>') },
+            {
+                id: 2, name: 'Runner Name 2', html: this._sanitizer.bypassSecurityTrustHtml('<div style="color: black"><div style="display: inline-block; margin-right: 15px;">img</div><div style="display: inline-block; width: 250px;"><div>Runner Name 2</div><div>Runner discription</div> </div></div>') },
         ];
     }
     onChange() {

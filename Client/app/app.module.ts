@@ -1,5 +1,7 @@
 import { NewRunsComponent } from './runs/newRuns.component';
 import { DropDownComponent } from './runs/newRuns.component';
+import { RunDownComponent } from './runs/newRuns.component';
+
 import { RunDetailComponent } from './runs/runs.component';
 import { MockAPi } from './mock.api';
 import { ProjectsDetailsComponent } from './projects/projectDetails.component';
@@ -25,7 +27,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 
 @NgModule({
-    declarations: [ DropDownComponent, AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent, ProjectsDetailsComponent, RunDetailComponent, NewRunsComponent],
+    declarations: [ RunDownComponent, DropDownComponent, AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent, ProjectsDetailsComponent, RunDetailComponent, NewRunsComponent],
     imports: [MultiselectDropdownModule,
         BrowserAnimationsModule,
         BrowserModule,
