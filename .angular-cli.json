@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "appc",
       "styles": [],
-      "scripts": []
+      "scripts": [
+      ]
     }
   ],
   "e2e": {

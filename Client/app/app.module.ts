@@ -1,4 +1,5 @@
 import { NewRunsComponent } from './runs/newRuns.component';
+import { DropDownComponent } from './runs/newRuns.component';
 import { RunDetailComponent } from './runs/runs.component';
 import { MockAPi } from './mock.api';
 import { ProjectsDetailsComponent } from './projects/projectDetails.component';
@@ -21,14 +22,15 @@ import { DocsComponent } from './Docs/docs.component';
 import { LibraryComponent } from './library/library.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SettingsComponent } from './settings/settings.component';
+import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 
 @NgModule({
-    declarations: [AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent, ProjectsDetailsComponent, RunDetailComponent,
-    NewRunsComponent],
-    imports: [
+    declarations: [ DropDownComponent, AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent, ProjectsDetailsComponent, RunDetailComponent, NewRunsComponent],
+    imports: [MultiselectDropdownModule,
         BrowserAnimationsModule,
         BrowserModule,
         routing,
+
         // FormsModule,
         HttpModule,
         // Only module that app module loads
@@ -37,7 +39,7 @@ import { SettingsComponent } from './settings/settings.component';
         HomeModule,
         StoreModule.provideStore(appReducer),
         StoreDevtoolsModule.instrumentOnlyWithExtension(),
-        TranslateModule.forRoot({ loader: { provide: TranslateLoader, useClass: ApiTranslationLoader } })
+        TranslateModule.forRoot({ loader: { provide: TranslateLoader, useClass: ApiTranslationLoader } }),
     ],
     providers: [
         AppService,
