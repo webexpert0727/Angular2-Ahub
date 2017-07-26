@@ -1,11 +1,8 @@
 import { ParameterModel } from './parameter.model';
 
-export class RunnerModel {
+export class OutputRouterModel {
     constructor(public id: number,
         public name: string,
-        public description: string,
-        public thumbnailUrl: string,
-        public parameters: ParameterModel[],
         public settings: ParameterModel[]
     ) {
     }
