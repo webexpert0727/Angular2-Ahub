@@ -11,7 +11,31 @@ import { ProjectModel } from './models/project.model';
 import { CategoryModel } from './models/category.model';
 const style = require('ansi-styles');
 import { Injectable } from '@angular/core';
+import { UserModel } from './models/user.model';
+import { SettingsModel } from './models/settings.model';
+import { InputRouterModel } from './models/input-router.model';
+import { OutputRouterModel } from './models/output-router.model';
+
+
+
 const displayDate = new Date().toLocaleDateString();
+
+
+
+const settingList: SettingsModel[] = [{
+    id: 1,
+    connectionString: "test connection string",
+    runnerPath: "~/plugins/runners",
+    inputRouterPath: "~/plugins/input-routers",
+    outputRouterPath: "~/plugins/output-routers"
+}];
+
+const userList: UserModel[] = [{
+    id: 1,
+    name: "Test Name",
+    username: "@TestUsername",
+    avatarUrl: "TestUrl"
+}];
 
 const categoryList: CategoryModel[] = [{
     id: 1,
@@ -99,6 +123,30 @@ const parameterList: ParameterModel[] = [{
     value: '19.45345345646',
     description: '456546',
     dataType: dataTypeList.filter(x => x.id === 4)
+}
+];
+
+const inputRoutList: InputRouterModel[] = [{
+    id: 1,
+    name: "File System",
+    settings: parameterList
+},
+{
+        id: 2,
+        name: "HDFS",
+        settings: parameterList
+}
+];
+
+const outputRoutList: OutputRouterModel[] = [{
+    id: 1,
+    name: "File System",
+    settings: parameterList
+},
+{
+    id: 2,
+    name: "HDFS",
+    settings: parameterList
 }
 ];
 
@@ -554,5 +602,31 @@ export class MockAPi {
             resolve(categoryList);
         });
     }
-     
+
+    getUsers(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            resolve(userList);
+        });
+    }
+
+    getSettings(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            resolve(settingList);
+        });
+    }
+
+    getInputRout(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            resolve(inputRoutList);
+        });
+    }
+
+    getOutputRout(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            resolve(outputRoutList);
+        });
+    }
+
+    
+    
 }
