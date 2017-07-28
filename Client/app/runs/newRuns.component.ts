@@ -59,7 +59,7 @@ export class DropDownComponent implements OnInit {
         enableSearch: true,
         checkedStyle: 'fontawesome',
         dynamicTitleMaxItems: 1,
-        displayAllSelectedText: true
+        displayAllSelectedText: false
     };
 
     // Text configuration 
