@@ -32,7 +32,7 @@ const MULTISELECT_VALUE_ACCESSOR: any = {
 };
 
 @Component({
-  selector: 'sss-multiselect-dropdown',
+  selector: 'ss-multiselect-dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css'],
   providers: [MULTISELECT_VALUE_ACCESSOR]
