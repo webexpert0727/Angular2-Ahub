@@ -1,10 +1,10 @@
-﻿import { IMultiSelectSettings} from './../dropdownComponent/types';
+﻿import { IMultiSelectSettings, IMultiSelectOption, IMultiSelectTexts} from './../dropdownComponent/types';
 import { MockAPi } from './../mock.api';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
-import { IMultiSelectOption, IMultiSelectTexts } from 'angular-2-dropdown-multiselect';
 import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'app-new-runs',
@@ -56,6 +56,7 @@ export class NewRunsComponent implements OnInit {
 export class DropDownComponent implements OnInit {
     optionsModel: number[];
     mySettings: IMultiSelectSettings = {
+        selectionLimit: 1,
         enableSearch: true,
         checkedStyle: 'fontawesome',
         dynamicTitleMaxItems: 1,
@@ -123,8 +124,7 @@ export class RunDownComponent implements OnInit {
     ngOnInit() {
         this.myOptions = [
             { id: 1, name: 'Runner Name', html: this._sanitizer.bypassSecurityTrustHtml('<div style="color: black"><div style="display: inline-block; margin-right: 15px;"">img</div><div style="display: inline-block; width: 250px;"><div>Runner Name</div><div>Runner discription</div> </div></div>') },
-            {
-                id: 2, name: 'Runner Name 2', html: this._sanitizer.bypassSecurityTrustHtml('<div style="color: black"><div style="display: inline-block; margin-right: 15px;">img</div><div style="display: inline-block; width: 250px;"><div>Runner Name 2</div><div>Runner discription</div> </div></div>') },
+            { id: 2, name: 'Runner Name 2', html: this._sanitizer.bypassSecurityTrustHtml('<div style="color: black"><div style="display: inline-block; margin-right: 15px;">img</div><div style="display: inline-block; width: 250px;"><div>Runner Name 2</div><div>Runner discription</div> </div></div>') },
         ];
     }
     onChange() {

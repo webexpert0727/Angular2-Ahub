@@ -24,7 +24,8 @@ import { DocsComponent } from './Docs/docs.component';
 import { LibraryComponent } from './library/library.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SettingsComponent } from './settings/settings.component';
-import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
+import { MultiselectDropdownModule } from './dropdownComponent/index';
+
 
 @NgModule({
     declarations: [ RunDownComponent, DropDownComponent, AppComponent, DocsComponent, LibraryComponent, ProjectsComponent, SettingsComponent, ProjectsDetailsComponent, RunDetailComponent, NewRunsComponent],

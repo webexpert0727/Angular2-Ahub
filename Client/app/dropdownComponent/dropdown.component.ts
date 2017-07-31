@@ -32,7 +32,7 @@ const MULTISELECT_VALUE_ACCESSOR: any = {
 };
 
 @Component({
-  selector: 'ss-multiselect-dropdown',
+  selector: 'sss-multiselect-dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css'],
   providers: [MULTISELECT_VALUE_ACCESSOR]
@@ -408,5 +408,4 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
       filter: this.filterControl.value
     });
   }
-
 }
